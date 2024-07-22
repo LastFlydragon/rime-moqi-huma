@@ -16,11 +16,14 @@
   - schema: moqi_ms # 墨奇辅助码微软双拼版 大词库版本 非自动上屏，支持4万字
   - schema: tiger # 虎码整句，即虎码输入加墨奇智能词库
 
-### [FAQ]<docs/INSTALL.md>（常见问题请参考墨奇音形的[文档]<https://github.com/gaboolic/rime-shuangpin-fuzhuma/blob/main/md/FAQ.md>或加入ＱＱ群讨论）q羣696353204
+### [FAQ]<[docs/INSTALL.md](https://github.com/LastFlydragon/rime-moqi-huma/blob/main/docs/INSTALL.md)>
+（常见问题请参考墨奇音形的[文档](https://github.com/gaboolic/rime-shuangpin-fuzhuma/blob/main/md/FAQ.md)
+或加入ＱＱ群讨论）q羣696353204
 
 ### 鸣谢
 
 [墨奇音形]<https://github.com/gaboolic/rime-shuangpin-fuzhuma>
+
 [虎码整句]<https://github.com/gaboolic/rime-wubi-sentence>
 
 更新日志：[更新日志.md](docs/update-log.md)
