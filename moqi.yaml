@@ -11,6 +11,7 @@ switches_engine:
     - name: chaifen
       states: [ 不拆, 扌斥 ]
     - name: big_char_set
+      reset: 1
       states: [ 大字集, 小字集 ]
     - name: mars
       reset: 0
