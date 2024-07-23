@@ -1,0 +1,46 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.16.1
+
+patch:
+  schema/dependencies:
+    - moqi_xh
+  reverse_lookup:
+    dictionary: moqi.extended
+    overwrite_comment: true
+    enable_completion: true
+    prefix: "!"
+    suffix: "'"
+    tips: "〔小鹤>墨奇辅码〕"
+    spelling_hints: 2
+    preedit_format:
+    - xform/^/ /
+    - xform/( \w)x/$1W/
+    - xform/( \w)k/$1Y/
+    - xform/( \w)y/$1P/
+    - xform/( \w)l/$1D/
+    - xform/( \w)c/$1K/
+    - xform/( \w)d/$1L/
+    - xform/( \w)w/$1Z/
+    - xform/( \w)p/$1X/
+    - xform/( [^aeiou])n/$1C/
+    - xform/( \w)z/$1B/
+    - xform/( \w)b/$1N/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+    - xform/^ //
+    - derive|^(.+)[[](\w)(\w)$|$1| # 纯双拼的情况
+    - derive|^(.+)[[](\w)(\w)$|$1$2| # 双拼+一位辅助码的情况
+    - derive|^(.+)[[](\w)(\w)$|$1[$2| # 双拼+[一位辅助码的情况
+    - abbrev|^(.+)[[](\w)(\w)$|$1$2$3| # 双拼+2位辅助码的情况，abbrev类型不可以整句内输入2位辅助码，必须加o或/
+    - derive|^(.+)[[](\w)(\w)$|$1$2$3o| # 整句模式下，输入syffo 出单字 增强单字性能
+    - derive|^(.+)[[](\w)(\w)$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
+    comment_format:
+    - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
+#    overwrite_comment: true
+#    - affix_segmentor@reverse_huma
+#    - xform/^.+$//
+
+  recognizer:
+    import_preset: default
+    patterns:
+      reverse_lookup: "^![a-z]*'?$"
