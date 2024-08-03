@@ -51,7 +51,7 @@ speller:
 
 
 translator:
-  dictionary: tiger
+  dictionary: tiger_simple
   enable_charset_filter: false
   enable_encoder: true
   enable_sentence: false

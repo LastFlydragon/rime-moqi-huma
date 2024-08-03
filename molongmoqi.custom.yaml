@@ -38,3 +38,5 @@ patch:
     prefix: "ac"
     tips: "〔自造词〕"
 
+recognizer/patterns:
+    add_user_dict: "^ac[A-Za-z]*$"
