@@ -104,7 +104,8 @@ octagram:
   enable_for_sentence:
     __patch:
       grammar:
-        language: zh-hans-t-essay-bgw
+        # language: zh-hans-t-essay-bgw ### rime 官方语言模型
+        language: zh-hans-t-huayu-v7-bgw ### 华宇语言模型
         collocation_max_length: 4
         collocation_min_length: 3
   enable_for_fixed:

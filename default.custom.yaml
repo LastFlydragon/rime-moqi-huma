@@ -1,6 +1,6 @@
 patch:
   schema_list:
-    - schema: molongmoqi    # 魔龙墨奇 自然龙加墨奇形码
+    - schema: molongmoqi_sentence    # 魔龙墨奇整句 自然龙加墨奇形码
     - schema: tiger_simple    # 虎码单字
     - schema: tiger           # 虎码整句 虎码加白霜词库智能整句
     - schema: moqi_zrm  # 自然码加墨奇形码

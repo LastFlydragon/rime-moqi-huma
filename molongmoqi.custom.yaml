@@ -38,5 +38,47 @@ patch:
     prefix: "ac"
     tips: "〔自造词〕"
 
-recognizer/patterns:
-    add_user_dict: "^ac[A-Za-z]*$"
+  schema/dependencies:
+    - moqi_xh
+
+  reverse_lookup:
+    dictionary: moqi.extended
+    overwrite_comment: true
+    enable_completion: true
+    prefix: "!"
+    suffix: "'"
+    tips: "〔墨奇>虎码〕"
+    preedit_format:
+    - xform/^/ /
+    - xform/( \w)x/$1W/
+    - xform/( \w)k/$1Y/
+    - xform/( \w)y/$1P/
+    - xform/( \w)l/$1D/
+    - xform/( \w)c/$1K/
+    - xform/( \w)d/$1L/
+    - xform/( \w)w/$1Z/
+    - xform/( \w)p/$1X/
+    - xform/( [^aeiou])n/$1C/
+    - xform/( \w)z/$1B/
+    - xform/( \w)b/$1N/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+    - xform/^ //
+    - derive|^(.+)[[](\w)(\w)$|$1| # 纯双拼的情况
+    - derive|^(.+)[[](\w)(\w)$|$1$2| # 双拼+一位辅助码的情况
+    - derive|^(.+)[[](\w)(\w)$|$1[$2| # 双拼+[一位辅助码的情况
+    - abbrev|^(.+)[[](\w)(\w)$|$1$2$3| # 双拼+2位辅助码的情况，abbrev类型不可以整句内输入2位辅助码，必须加o或/
+    - derive|^(.+)[[](\w)(\w)$|$1$2$3o| # 整句模式下，输入syffo 出单字 增强单字性能
+    - derive|^(.+)[[](\w)(\w)$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
+    comment_format:
+    spelling_hints: 2
+#    - affix_segmentor@reverse_huma
+#    - xform/^.+$//
+#    - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
+#    overwrite_comment: true
+
+  recognizer:
+    import_preset: default
+    patterns:
+      reverse_lookup: "^![a-z]*'?$"
+      add_user_dict: "^ac[A-Za-z]*$"
+    
