@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 name: 纯黑 #方案名称
-author: 'amzxyz, 玄天之龙' #作者
+author: '玄天之龙' #作者
 conf:
   # 数字、编辑、功能键盘
   num_height:
@@ -79,8 +79,8 @@ plus:
 pure:
   plus:
     height: 46 #按键高度
-    horizontal_gap: 6 #按键水平间距
-    vertical_gap: 7 #按键行距
+    horizontal_gap: 3 #按键水平间距
+    vertical_gap: 3 #按键行距
     key_hint_offset_y: 0
   key_height_last: 46
 
@@ -223,11 +223,11 @@ style:
     movable: false #是否可移动窗口，或仅移动一次 true|false|once
     real_margin: 0 #屏幕左右边缘和悬浮窗之间的距离
     spacing: -1 #屏幕上下边缘或预编辑上下边缘和悬浮窗之间的距离
-    margin_x: 5 #水平边距
+    margin_x: 2 #水平边距
     margin_y: 1 #竖直边距
-    border: 6 #边框宽度
+    border: 0 #边框宽度
     round_corner: 2 #窗口圆角
-    elevation: 6 #阴影(>=Android5.0)
+    elevation: 0 #阴影(>=Android5.0)
     alpha: 0xff #透明度(0-255)
     #background: background.png #颜色或者backgrounds目录下的图片文件名
     # 样式
@@ -379,15 +379,15 @@ preset_color_schemes:
 
   google_black:
     name: 简黑 #方案名称
-    author: 'amzxyz, 玄天之龙' #作者
+    author: '玄天之龙' #作者
     light_scheme: default
     # 悬浮窗
     border_color: 0xFFCC00 #悬浮窗边框
     # label_color: hilited_text_color #标签（候选序号）
     # text_back_color: back_color #编码区背景
-    text_color: 0xFFCC00 #编码
+    text_color: 0xFFC8E2B2 #编码
     # hilited_back_color: back_color #高亮编码背景
-    hilited_text_color: 0xFFCC00 #高亮编码
+    hilited_text_color: 0xFFC8E2B2 #高亮编码
 
     # 候选栏
     # candidate_separator_color: back_color #候选分割线
@@ -410,11 +410,11 @@ preset_color_schemes:
     # hilited_key_symbol_color: key_symbol_color #高亮按键符号
 
     # 主键盘
-    main_back_color: 0x061313 #按键背景 ※
+    main_back_color: 0x001616 #按键背景 ※
     hilited_main_back_color: 0xFFCC00 #高亮按键背景 ※
     # space_back_color: danjing.google_black/space.png #空格背景 ※
     # hilited_space_back_color: danjing.google_black/hilited_space.png #高亮空格背景 ※
-    off_key_back_color: 0x061313 #功能键背景
+    off_key_back_color: 0x001616 #功能键背景
     # off_key_text_color: key_text_color #功能键文字
     # off_key_symbol_color: off_key_text_color #功能键符号 高亮功能键符号※
     hilited_off_key_back_color: 0xFFCC00 #高亮功能键背景

@@ -4,7 +4,7 @@
 
 schema:
   schema_id: tiger
-  name: 虎码整句
+  name: 白虎整句
   version: "2024-04-24"
   author:
     - gaboolic （裁缝)
@@ -75,7 +75,7 @@ add_user_dict:
   enable_completion: true
   enable_encoder: true
   enable_sentence: true
-  enable_user_dict: true
+  enable_user_dict: false
   encode_commit_history: false
   preedit_format:
     
@@ -127,7 +127,7 @@ key_binder:
     - { when: composing, accept: Control+7, send_sequence: '{Home}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}{Shift+Right}[' }
 
 # 启用語言模型
-#__include: moqi:/octagram/enable_for_sentence
+__include: moqi:/octagram/enable_for_sentence
 
 
 

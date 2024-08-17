@@ -11,11 +11,11 @@
 
 ---
 name: moqi_big.extended
-version: "2024.05.11"
+version: "2024.08.17"
 sort: by_weight  #字典初始排序，可選original或by_weight
 use_preset_vocabulary: false
 
 import_tables:
-  - cn_dicts_moqi/8105     # 8105
-  - cn_dicts_moqi/41448     # 4万字大字表
+  - ink-dicts/moran.base     # 基础词库
+  - ink-dicts/moran.chars      # 扩展词库
 ...

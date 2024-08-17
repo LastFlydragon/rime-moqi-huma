@@ -1,23 +1,23 @@
 switches_engine:  
   switches:
     - name: ascii_mode
-      states: [ 中文, 西文 ]
+      states: [ 中, 西 ]
     - name: full_shape
-      states: [ 半角, 全角 ]
+      states: [ 半, 全 ]
     - name: traditionalization
       states: [ 简, 繁 ]
     - name: emoji
-      states: [ 💀, 😄 ]
+      states: [ :|, ;) ]
     - name: chaifen
-      states: [ 不拆, 扌斥 ]
+      states: [ 不,拆 ]
     - name: big_char_set
       reset: 1
-      states: [ 大字集, 小字集 ]
+      states: [ 大, 小 ]
     - name: mars
       reset: 0
       states: [ 地, 煋 ] #火星文
     - name: ascii_punct
-      states: [ 。，, ．， ]
+      states: [ 。, ． ]
 
   engine:
     processors:
@@ -114,17 +114,23 @@ octagram:
         # language: fcitx-zh-hans # 小企鹅模型
         # language: zh-hans-t-huayu-v7-bgw # 华宇模型
         # language: zh-hans-wiki-202405 # 维基模型
-        # language: zh-hans-t-essay-bgw # rime官方模型
+        language: zh-hans-t-essay-bgw # rime官方模型
         # language: zhs-moqi # 墨奇训练的模型 聊胜于无
         collocation_max_length: 4
         collocation_min_length: 2
-        # non_collocation_penalty: -24
-        # collocation_penalty: -6
-        # weak_collocation_penalty: -12
-        # rear_penalty: -18
+        non_collocation_penalty: -24
+        collocation_penalty: -6
+        weak_collocation_penalty: -12
+        rear_penalty: -18
       translator/contextual_suggestions: true # 是否使用语言模型优化输出结果〔需配合 grammar 使用〕
       translator/max_homophones: 4 # 最大同音簇长度〔需配合 grammar 使用〕
       translator/max_homographs: 2 # 最大同形簇长度〔需配合 grammar 使用〕
+      translator/dynamic_model: true  # 启用动态语言模型
+      translator/segment_length: 4  # 设置分词长度
+      translator/prioritize_quality: true  # 启用优先质量选项
+      translator/max_phrase_length: 7  # 设置短语的最大长度，如果主要输入单词或短短的短语，可以设置为4。句子更长一些
+      translator/enable_completion: true  # 启用候选词补全
+      translator/max_candidates: 10  # 设置最大候选词数量
 phrase:
   custom_phrase:
     dictionary: ""
@@ -423,7 +429,7 @@ big_char_and_user_dict:
     spelling_hints: 1
     comment_format:
       - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
-    enable_user_dict: true # 是否开启自动调频
+    enable_user_dict: false # 是否开启自动调频
     user_dict: user.custom.dict
     db_class: tabledb
 
