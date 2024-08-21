@@ -10,9 +10,6 @@ switches_engine:
       states: [ :|, ;) ]
     - name: chaifen
       states: [ 不,拆 ]
-    - name: big_char_set
-      reset: 1
-      states: [ 大, 小 ]
     - name: mars
       reset: 0
       states: [ 地, 煋 ] #火星文
@@ -88,6 +85,7 @@ switches_engine:
       #- lua_filter@*laneChangeAndSpace_Filter   # 把<br>替换为换行
       - lua_filter@*is_in_user_dict # 用户词典的词加上一个*
       - lua_filter@*stick # tab置顶词回显在第一个comment中
+      # - lua_filter@*moqi.jianma_show # 当用户用全码"womf"输入“我们”时，回显简码提示"wm"
       #- lua_filter@*long_word_filter                       # 长词优先（顺序要求：长词优先 > Emoji）
       # - lua_filter@*moran_debug_filter # debug
 
@@ -239,11 +237,11 @@ reverse:
     tag: reverse_cj
     dictionary: cangjie5
     enable_completion: true
-    prefix: "acj"
+    prefix: "arj"
     suffix: "'"
     tips: 〔仓颉〕
     preedit_format:
-      - xform/^acj/仓颉5:/
+      - xform/^arj/仓颉5:/
       - xlit|abcdefghijklmnopqrstuvwxyz|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|
 
   reverse_stroke:
@@ -255,12 +253,6 @@ reverse:
     tips: 〔筆畫hspnz〕 # 〔筆畫〕
     preedit_format:
       - xlit/hspnz/一丨丿丶乙/
-
-      - affix_segmentor@reverse_moqima
-      - affix_segmentor@radical_flypy
-      - affix_segmentor@reverse_stroke
-      - affix_segmentor@reverse_zrlf
-      - affix_segmentor@reverse_cj
 
   reverse_lookup:
     tags: [ reverse_moqima,radical_flypy,reverse_stroke,reverse_zrlf,reverse_cj]
@@ -403,22 +395,6 @@ guide:
     idx: 1
 
 big_char_and_user_dict:
-  # 大字集
-  big_char_set:
-    dictionary: moqi_big.extended
-    option_name: big_char_set
-    initial_quality: -1 # 设置此翻译器出字优先级,-1为极低
-    enable_completion: false
-    enable_sentence: false
-    ##  默认为不超过 2 个字的候选项显示输入码；将 2 改为 0 可关闭编码提示，
-    ##  改为 1 则是只显示单字的输入码，依此类推。
-    spelling_hints: 1
-    comment_format:
-      - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
-
-    enable_user_dict: false # 是否开启自动调频
-
-
   user_dict_set:
     dictionary: moqi.extended
     initial_quality: 0
@@ -429,7 +405,7 @@ big_char_and_user_dict:
     spelling_hints: 1
     comment_format:
       - "xform/(^|[ '])[^[]+[[]/$1/" ## 编码提示只显示辅助码部分
-    enable_user_dict: false # 是否开启自动调频
+    enable_user_dict: true # 是否开启自动调频
     user_dict: user.custom.dict
     db_class: tabledb
 

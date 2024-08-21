@@ -4,8 +4,7 @@
 config_version: '0.40'
 
 schema_list:
-  - schema: tiger # 
-  - schema: moqi_zrl # 墨奇辅助码 自然双拼版 大词库版本 非自动上屏，支持4万字
+  - schema: moqi_zrl # 墨奇辅助码 自然龙码版 大词库版本 非自动上屏，支持4万字
 
 switcher:
   caption: 〔方案選單〕
@@ -19,7 +18,6 @@ switcher:
     - traditionalization
     - emoji
     - chaifen
-    - big_char_set # 大字集 小字集
     - mars
     - ascii_punct
   fold_options: true

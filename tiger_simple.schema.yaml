@@ -62,7 +62,7 @@ translator:
 
 reverse_lookup:
   dictionary: moqi.extended
-  prefix: "`"
+  prefix: "!"
   suffix: "'"
   tips: "〔墨龙〕"
 
@@ -78,7 +78,7 @@ recognizer:
   import_preset: default
   patterns:
     punct: '^/([0-9]0?|[A-Za-z]+)$'
-    reverse_lookup: "^`[a-z]*'?$"
+    reverse_lookup: "^![a-z]*'?$"
 
 
 #menu:

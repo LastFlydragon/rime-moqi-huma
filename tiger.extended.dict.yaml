@@ -26,7 +26,7 @@ import_tables:
   - cn_dicts_tiger/ext      # 扩展词库
   - cn_dicts_tiger/others   # 一些杂项 容错音和错字 可以不开
 
-  - ink-dicts/user # 用户自定义词典
-  - ink-dicts/changcijian   # 多字
-  - ink-dicts/cell # 细胞词库
+  - cn_dicts_common/user # 用户自定义词典
+#   - ink-dicts/changcijian   # 多字
+  - cn_dicts_moqi/cell # 细胞词库
 ...
