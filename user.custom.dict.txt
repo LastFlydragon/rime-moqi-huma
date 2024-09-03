@@ -2,4 +2,11 @@
 #@/db_name	user.custom.dict
 #@/db_type	tabledb
 #@/rime_version	1.11.2
-#@/tick	0
+#@/tick	3
+打着	dm[fd vr[yo	0
+打着字	dm[fd vr[yo zt[bz	2
+库	kh[gi	0
+默	mg[lq	2
+一个	yb[aa gi[rl	0
+一个库	yb[aa gi[rl kh[gi	2
+字	zt[bz	0

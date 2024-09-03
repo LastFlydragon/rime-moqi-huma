@@ -11,11 +11,9 @@ function M.init(env)
     env.name_space = env.name_space:gsub("^*", "")
     M.count = config:get_int(env.name_space .. "/count") or 2
     M.idx = config:get_int(env.name_space .. "/idx") or 4
-    M.input_str = env.engine.context.input
 end
 
 function M.func(input)
-    local preedit_len = 0
     local l = {}
     local firstWordLength = 0 -- 记录第一个候选词的长度，提前的候选词至少要比第一个候选词长
     local done = 0         -- 记录筛选了多少个词条(只提升 count 个词的权重)
@@ -26,18 +24,6 @@ function M.func(input)
         if firstWordLength < 1 then
             firstWordLength = leng
         end
-        if preedit_len < 1 then
-            local str = cand.preedit
-            -- 去掉preedit的全拼补全
-            local pos = string.find(str, " [", 1, true)
-            if pos then
-                str = string.sub(str, 1, pos - 1)
-            end
-
-            str = str:gsub("%s+", "")
-            preedit_len = utf8.len(str)
-        end
-        
         -- 不处理 M.idx 之前的候选项
         if i < M.idx then
             i = i + 1
@@ -45,24 +31,12 @@ function M.func(input)
         -- 长词直接 yield，其余的放到 l 里
         elseif leng <= firstWordLength or cand.text:find("[%a%d]") then
             table.insert(l, cand)
-        -- 如果
-        elseif firstWordLength == 1 and preedit_len == 4 then
-            yield(cand)
-            done = done + 1
-        elseif firstWordLength == 2 and preedit_len == 6 then
-            yield(cand)
-            done = done + 1
-        elseif firstWordLength <=3 and preedit_len == 8 then
-            yield(cand)
-            done = done + 1
-        elseif firstWordLength <=4 and preedit_len == 10 then
-            yield(cand)
-            done = done + 1
         else
-            table.insert(l, cand)
+            yield(cand)
+            done = done + 1
         end
         -- 找齐了或者 l 太大了，就不找了，一般前 50 个就够了
-        if done == M.count or #l > 20 then
+        if done == M.count or #l > 50 then
             break
         end
     end

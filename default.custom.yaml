@@ -1,5 +1,9 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.16.1
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Sat Aug 31 10:13:06 2024"
+  rime_version: 1.11.2
 patch:
   schema_list:
-    - schema: tiger_simple    # 虎码单字
-    - schema: tiger           # 虎码整句 虎码加白霜词库智能整句
-    - schema: moqi_zrl  # 自然码加墨奇形码
+    - {schema: longxiang}
