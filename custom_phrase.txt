@@ -9,8 +9,8 @@
 ## 常用个人信息
 ## 注意最后的数字控制优先级，希望排在前面的要设置得大一些
 姓名（在custom_phrase.txt里设置）	info	64
-xxx（学号/工号）	info	60
-12300001234（手机）	info	56
-xx学院/部门	info	48
-xx學校/單位	info	44
-foo@xx.com（邮箱）	info	40
+玄天之龙（学号/工号）	info	60
+12345678（手机）	info	56
+武汉大学计算机系	info	48
+某某保密单位	info	44
+last_skywalker@outlook.com（邮箱）	info	40
