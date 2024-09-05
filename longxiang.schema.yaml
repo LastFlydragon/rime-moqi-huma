@@ -8,15 +8,15 @@
 # 方案说明
 schema:
   schema_id: longxiang
-  name: 墨龙白象
-  version: "2024-08-05"
+  name: 龙象般若
+  version: "2024-09-05"
   author:
-    - gaboolic,amzxyz,玄天之龙
+    - 玄天之龙
   description: |
-    万象拼音白霜词库，自然龙加墨奇辅码，简称墨龙白象
+    万象拼音白霜词库，自然龙加墨奇辅码，简称龙象
   dependencies:
     - melt_eng        # 英文输入，作为次翻译器挂载到拼音方案
-#    - radical_pinyin  # 部件拆字，反查及辅码
+    - radical_pinyin  # 部件拆字，反查及辅码
 
 
 
@@ -36,10 +36,11 @@ switches:
     states: [ :|, ;) ]
   - name: full_shape
     states: [ 半, 全 ]
-  - name: moqi_chaifen
-    states: [ 奇, 墨 ]
   - name: pinyinhint
     states: [ 隐, 拼 ]
+    reset: 1
+  - name: moqi_chaifen
+    states: [ 奇, 墨 ]
     reset: 1
 
 pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
@@ -66,7 +67,7 @@ engine:
     - ascii_segmentor
     - matcher
     - abc_segmentor
-    - affix_segmentor@radical_lookup  # 部件拆字自定义 tag
+#    - affix_segmentor@radical_lookup  # 部件拆字自定义 tag
     - punct_segmentor
     - fallback_segmentor
   translators:
@@ -81,7 +82,7 @@ engine:
     - table_translator@melt_eng         # 英文输入
     - table_translator@cn_en            # 中英混合词汇
     - table_translator@chengyu            # 简码成语
-    - table_translator@radical_lookup   # 部件拆字反查
+#    - table_translator@radical_lookup   # 部件拆字反查
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
@@ -94,7 +95,7 @@ engine:
     - simplifier@traditionalize                     # 简繁切换
     - simplifier@mars                               #火星文
     - simplifier@chinese_english                    #中英翻译
-    - simplifier@chaifen
+    - simplifier@moqi_chaifen
     - simplifier@pinyinhint
     - lua_filter@*search@radical_pinyin             # 部件拆字辅码
 #    - lua_filter@*is_in_user_dict                   # 根据是否在用户词典，在结尾加上一个星号 *
@@ -336,7 +337,7 @@ key_binder:
 #    - { when: has_menu, accept: comma, send: 3 }
 #使用Control+e进入翻译模式
     - { when: has_menu, accept: "Control+e", toggle: chinese_english}
-    - { when: has_menu, accept: "Control+p", toggle: chaifen }
+    - { when: has_menu, accept: "Control+p", toggle: moqi_chaifen }
 #使用快捷键Control+q开启和关闭辅助码显示，使用快捷键Control+p启用增强（外挂）辅助码显示
     - { when: has_menu, accept: "Control+q", toggle: fuzhu_switch }
 #    - { when: composing, accept: "Control+o", toggle: "fuzhu_type_switch" }
