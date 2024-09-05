@@ -16,9 +16,13 @@
 # 3. 移除了一部分容錯碼，如「扌」的 t 編碼、單筆畫「一」的 h 編碼等。
 
 ---
-name: dragon.chars
+name: chars
 version: "20240904"
 sort: by_weight
+columns:
+  - text
+  - code
+  - weight
 use_preset_vocabulary: false
 ...
 

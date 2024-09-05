@@ -2,9 +2,13 @@
 # encoding: utf-8
 #
 ---
-name: dragon.chars
+name: chars
 version: "2024-09-04"
 sort: by_weight
+columns:
+  - text
+  - code
+  - weight
 use_preset_vocabulary: false
 ...
 的	dr;bu	8280176
