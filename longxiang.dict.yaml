@@ -17,11 +17,12 @@ use_preset_vocabulary: false
 #雙拼不支持 luna_pinyin.cn_en 詞庫，請用戶手動禁用。
 
 import_tables:
-  - dragon_dicts/dragon.chars     # 字表
-  - dragon_dicts/dragon.base     # 基础词库
-  - dragon_dicts/dragon.ext      # 扩展词库
-#  - dragon_dicts/dragon.long     # 细胞词库 长字词
-#  - dragon_dicts/dragon.words     # 细胞词库 无码字词
+  - dragon_dicts/8105     # 字表
+#  - dragon_dicts/chars     # 字表
+  - dragon_dicts/base     # 基础词库
+  - dragon_dicts/ext      # 扩展词库
+#  - dragon_dicts/words     # 细胞词库 低频字词
+#  - dragon_dicts/long     # 细胞词库 长字词
 ...
 
 
