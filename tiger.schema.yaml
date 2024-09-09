@@ -67,7 +67,12 @@ reverse_lookup:
   tips: "龙>虎"
 
 punctuator:
-  import_preset: symbols
+  full_shape:
+    __include: default:/punctuator/full_shape  # 从 default.yaml 导入配置
+  half_shape:
+    __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
+  symbols:
+    __include: symbols:/symbols         # 从 symbols.yaml 导入配置
 
 key_binder:
 #  import_preset: default
