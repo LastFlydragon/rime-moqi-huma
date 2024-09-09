@@ -1,9 +1,9 @@
 # 四字词
----
-name: chengyu
-version: "2024-02-27"
-sort: by_weight
-...
+# ---
+# name: chengyu
+# version: "2024-02-27"
+# sort: by_weight
+# ...
 # +_+
 傲岸不群	aabq
 皑皑白雪	aabx

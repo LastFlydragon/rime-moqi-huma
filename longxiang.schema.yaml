@@ -38,7 +38,6 @@ switches:
     states: [ 半, 全 ]
   - name: pinyinhint
     states: [ 隐, 拼 ]
-    reset: 1
   - name: moqi_chaifen
     states: [ 奇, 墨 ]
     reset: 1
