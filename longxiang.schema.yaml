@@ -1,10 +1,5 @@
 # Rime schema
 # encoding: utf-8
-#本方案匹配词库解码顺序为：全拼拼音；墨奇;鹤形;自然码;简单鹤;仓颉首末;虎码首末;五笔前2
-#############DIY你想要的方案组合,试试搭配一个自然码+墨奇辅助的方案吧！###########################
-
-########################以下是方案配置######################################################
-
 # 方案说明
 schema:
   schema_id: longxiang
@@ -13,12 +8,9 @@ schema:
   author:
     - 玄天之龙
   description: |
-    万象拼音白霜词库，自然龙加墨奇辅码，简称龙象
+    万象拼音白霜词库，自然龙音码加墨奇形辅码，简称龙象
   dependencies:
     - melt_eng        # 英文输入，作为次翻译器挂载到拼音方案
-    - radical_pinyin  # 部件拆字，反查及辅码
-
-
 
 # 开关
 # reset: 默认状态。注释掉后，切换窗口时不会重置到默认状态。
@@ -30,8 +22,6 @@ switches:
   - name: ascii_punct  # 中英标点
     states: [ ¥, $ ]
     reset: 1
-  - name: traditionalization
-    states: [ 简, 繁 ]
   - name: emoji
     states: [ :|, ;) ]
   - name: full_shape
@@ -41,6 +31,8 @@ switches:
   - name: moqi_chaifen
     states: [ 奇, 墨 ]
     reset: 1
+  - name: traditionalization
+    states: [ 简, 繁 ]
 
 pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
   candidate_length: 1         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
@@ -66,7 +58,6 @@ engine:
     - ascii_segmentor
     - matcher
     - abc_segmentor
-#    - affix_segmentor@radical_lookup  # 部件拆字自定义 tag
     - punct_segmentor
     - fallback_segmentor
   translators:
@@ -81,12 +72,10 @@ engine:
     - table_translator@melt_eng         # 英文输入
     - table_translator@cn_en            # 中英混合词汇
     - table_translator@chengyu            # 简码成语
-#    - table_translator@radical_lookup   # 部件拆字反查
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
     - lua_filter@*long_word_filter                  #长词优先      
-    - reverse_lookup_filter@radical_reverse_lookup  # 部件拆字滤镜
     - lua_filter@*autocap_filter                    # 英文自动大写
     - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
     - lua_filter@*reduce_english_filter             # 降低部分英语单词在候选项的位置
@@ -96,8 +85,7 @@ engine:
     - simplifier@chinese_english                    #中英翻译
     - simplifier@moqi_chaifen
     - simplifier@pinyinhint
-    - lua_filter@*search@radical_pinyin             # 部件拆字辅码
-#    - lua_filter@*is_in_user_dict                   # 根据是否在用户词典，在结尾加上一个星号 *
+    - lua_filter@*is_in_user_dict                   # 根据是否在用户词典，在结尾加上一个星号 *
 #    - lua_filter@*cn_en_spacer                     #启用时中英混输为中英混输词条（cn_en.dict.yaml）自动增加空格，示例：`VIP中P` → `VIP 中 P`              
 #    - lua_filter@*en_spacer                         #启用时中文状态下输入英文单词后面自动追加空格
     - lua_filter@*pro_comment_format                #超级注释模块，支持简码前置、错词提示、辅助码显示，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
@@ -182,8 +170,8 @@ translator:
 #  punctuation_model: default  # 设置标点符号模型
 #  single_char_first: true  # 优先显示单个字符
 #  candidate_filter: "^(?!abc).*$"  # 过滤掉包含 "abc" 的候选词
-#  user_dict: zrm.userdb  # 用户词典的文件名称
-#  db_class: tabledb  #开启后就不会产生zrm.userdb这样的文件夹，会直接输出文本zrm.txt同时无法使用同步能力
+  user_dict: longxiang.userdb  # 用户词典的文件名称
+  db_class: tabledb  #开启后就不会产生longxiang.userdb这样的文件夹，会直接输出文本longxiang.txt同时无法使用同步能力
   enable_user_dict: true # 是否开启自动调频
   encode_commit_history: true   # 预留历史上屏自动编码成词
   initial_quality: 3       # 初始质量拼音的权重应该比英文大
@@ -192,7 +180,7 @@ translator:
   always_show_comments: true    # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供pro_comment_format.lua做判断用。
   comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
-#    - xform/([a-z][a-z][a-z][a-z])o/$1°/
+    - xform/([a-z][a-z][a-z][a-z])o/$1°/
 
 # 自定义短语
 custom_phrase:
@@ -281,47 +269,14 @@ traditionalize:
 # punctuator 下面有三个子项：
 #   full_shape 全角标点映射
 #   half_shape 半角标点映射
-#   symbols    Rime 的预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols_v.yaml 修改成了 'V' 开头。
+#   symbols    Rime 的预设配置是以 '/' 前缀开头输出一系列字符，自定义的 symbols.yaml 修改成了 'V' 开头。
 punctuator:
   full_shape:
     __include: default:/punctuator/full_shape  # 从 default.yaml 导入配置
   half_shape:
     __include: default:/punctuator/half_shape  # 从 default.yaml 导入配置
   symbols:
-    __include: symbols:/symbols         # 从 symbols_v.yaml 导入配置
-
-
-# 部件拆字反查
-radical_lookup:
-  tag: radical_lookup
-  dictionary: radical_pinyin
-  enable_user_dict: false
-  db_class: stabledb
-  prefix: "!"  # 反查前缀（反查时前缀会消失影响打英文所以设定为两个字母，或可改成一个非字母符号），与 recognizer/patterns/radical_lookup 匹配
-  tips: "  〔拆字〕"
-  comment_format:
-    - erase/^.*$//
-# 部件拆字滤镜
-radical_reverse_lookup:
-  tags: [ radical_lookup ]
-  # dictionary 为拼音标注来源。目前是显示本方案词库的注音，可去部件拆字方案下载更全的、带声调的、已编译好的词典
-  # https://github.com/mirtlecn/rime-radical-pinyin?tab=readme-ov-file#%E5%8F%8D%E6%9F%A5%E5%B8%A6%E5%A3%B0%E8%B0%83%E6%B3%A8%E9%9F%B3
-  dictionary: longxiang
-  db_class: stabledb
-#  comment_format:     # 自定义 comment，例如在左右加上括号
-#    - xform/^/(/
-#    - xform/$/)/
-
-# 处理符合特定规则的输入码，如网址、反查
-recognizer:
-  import_preset: default  # 从 default.yaml 继承通用的
-  patterns:  # 再增加方案专有的：
-    punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols_v.yaml 的 symbols
-    radical_lookup: "^F[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
-    unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
-    number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@number_translator，数字金额大写
-    gregorian_to_lunar: "^N[0-9]{1,8}"  # 脚本将自动获取第 2 个字符 N 作为触发前缀，响应 lua_translator@lunar，公历转农历，输入 N20240115 得到「二〇二三年腊月初五」
-    calculator: "^V.*$"                 #计算器功能引导
+    __include: symbols:/symbols         # 从 symbols.yaml 导入配置
 
 # 从 default 继承快捷键
 key_binder:
@@ -382,9 +337,9 @@ speller:
   auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}|;[a-z]
 #  auto_select_pattern: ^;(\w+|;)
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`!/
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`/
   # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
   delimiter: " '"  # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
   algebra:
     - derive|^(.+)[[](\w)(\w)$|$1| # 纯双拼的情况
@@ -395,15 +350,19 @@ speller:
     - derive|^(.+)[[](\w)(\w)$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
     # - derive/[[]// ## 取消注释后：直接引导2位辅助码；否则只能引导1位辅助码或者2位辅助码加/
 
-__include: octagram/enable_for_sentence   #启用语言模型
-#__include: octagram/disable   #禁用语言模型
+# 处理符合特定规则的输入码，如网址、反查
+recognizer:
+  import_preset: default  # 从 default.yaml 继承通用的
+  patterns:  # 再增加方案专有的：
+    punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols.yaml 的 symbols
+    unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
+    number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@number_translator，数字金额大写
+    gregorian_to_lunar: "^N[0-9]{1,8}"  # 脚本将自动获取第 2 个字符 N 作为触发前缀，响应 lua_translator@lunar，公历转农历，输入 N20240115 得到「二〇二三年腊月初五」
+    calculator: "^V.*$"                 #计算器功能引导
+
 #语言模型
 octagram:
-  disable:
-    __patch:
-      grammar: {}
   enable_for_sentence:
-    __patch:
       grammar:
         # language: fcitx-zh-hans # 小企鹅模型
         # language: zh-hans-t-huayu-v7-bgw # 华宇模型
