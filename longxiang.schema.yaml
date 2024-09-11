@@ -41,13 +41,6 @@ pro_comment_format:           # 超级注释模块，子项配置 true 开启，
   fuzhu_type: moqi
   corrector: true              # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
   corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
-=======
-# pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
-#   candidate_length: 1         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
-#   fuzhu_type: moqi
-#   corrector: true              # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
-#   corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
->>>>>>> 3d6d9fd7291373e08a702f2d9cc601fe1a763085
 
 # 输入引擎
 engine:
@@ -98,7 +91,7 @@ engine:
     - lua_filter@*is_in_user_dict                   # 根据是否在用户词典，在结尾加上一个星号 *
 #    - lua_filter@*cn_en_spacer                     #启用时中英混输为中英混输词条（cn_en.dict.yaml）自动增加空格，示例：`VIP中P` → `VIP 中 P`              
 #    - lua_filter@*en_spacer                         #启用时中文状态下输入英文单词后面自动追加空格
-#    - lua_filter@*pro_comment_format                #超级注释模块，支持简码前置、错词提示、辅助码显示，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
+    - lua_filter@*pro_comment_format                #超级注释模块，支持简码前置、错词提示、辅助码显示，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
     - uniquifier                                    # 去重
 
 
@@ -333,7 +326,7 @@ speller:
 #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}|;[a-z]
 #  auto_select_pattern: ^;(\w+|;)
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`/
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`/!
   # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
   delimiter: " '"  # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
@@ -372,15 +365,3 @@ octagram:
         collocation_penalty: -6
         weak_collocation_penalty: -12
         rear_penalty: -18
-<<<<<<< HEAD
-=======
-      translator/contextual_suggestions: true # 是否使用语言模型优化输出结果〔需配合 grammar 使用〕
-      translator/max_homophones: 4 # 最大同音簇长度〔需配合 grammar 使用〕
-      translator/max_homographs: 2 # 最大同形簇长度〔需配合 grammar 使用〕
-      translator/dynamic_model: true  # 启用动态语言模型
-      translator/segment_length: 4  # 设置分词长度
-      translator/prioritize_quality: true  # 启用优先质量选项
-      translator/max_phrase_length: 7  # 设置短语的最大长度，如果主要输入单词或短短的短语，可以设置为4。句子更长一些
-      translator/enable_completion: true  # 启用候选词补全
-      translator/max_candidates: 10  # 设置最大候选词数量
->>>>>>> 3d6d9fd7291373e08a702f2d9cc601fe1a763085
