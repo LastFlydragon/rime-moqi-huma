@@ -20,6 +20,8 @@ import_tables:
 #  - dragon_dicts/chars     # 全字表,包括常用和大字符集
   - dragon_dicts/base     # 基础词库
   - dragon_dicts/ext      # 扩展词库
+#  - dragon_dicts/base     # 基础词库
+#  - dragon_dicts/ext      # 扩展词库
 #  - dragon_dicts/words     # 细胞词库 低频字词
 #  - dragon_dicts/long     # 细胞词库 长字词
 ...
