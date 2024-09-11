@@ -11,6 +11,7 @@ schema:
     万象拼音白霜词库，自然龙音码加墨奇形辅码，简称龙象
   dependencies:
     - melt_eng        # 英文输入，作为次翻译器挂载到拼音方案
+    - tiger
 
 # 开关
 # reset: 默认状态。注释掉后，切换窗口时不会重置到默认状态。
@@ -35,7 +36,7 @@ switches:
     states: [ 简, 繁 ]
 
 pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
-  candidate_length: 1         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
+  candidate_length: 3         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
   fuzhu_type: moqi
   corrector: true              # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
   corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
@@ -75,6 +76,7 @@ engine:
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
+    - reverse_lookup_translator@reverse_tiger
     - lua_filter@*long_word_filter                  #长词优先      
     - lua_filter@*autocap_filter                    # 英文自动大写
     - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
@@ -157,7 +159,7 @@ reduce_english_filter:
 # 主翻译器，拼音
 translator:
   dictionary: longxiang          # 挂载词库 longxiang.dict.yaml
-#  prism: double_pinyin          # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
+  prism: longxiang          # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
   contextual_suggestions: true   #上下文建议开启〔需配合 grammar 使用〕
   max_homophones: 4 # 最大同音簇长度〔需配合 grammar 使用〕
   max_homographs: 2 # 最大同形簇长度〔需配合 grammar 使用〕
@@ -181,6 +183,20 @@ translator:
   comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
     - xform/([a-z][a-z][a-z][a-z])o/$1°/
+
+reverse_tiger:
+  dictionary: tiger
+  db_class: stabledb
+  tag: reverse_tiger
+  enable_completion: true
+  prism: tiger
+  prefix: "!"
+  suffix: "'"
+  tips: "虎>龙"
+
+reverse_lookup:
+  extra_tags:
+    - reverse_tiger
 
 # 自定义短语
 custom_phrase:
@@ -301,40 +317,12 @@ key_binder:
 #通过stick.lua显示到注释里，用来上屏带/的简码词汇。最好是用句号，这样可以与手机上可以做同样的定义，保持同样的习惯
     - { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" } 
     # - { when: composing, match: "[a-z]{2}", accept: Tab, send: '|' }
-#使用大写字母追加输入到上一个音节末尾
-    - { when: has_menu, accept: Shift+A, send_sequence: "{Control+Left}a{Control+Right}" }
-    - { when: has_menu, accept: Shift+B, send_sequence: "{Control+Left}b{Control+Right}" }
-    - { when: has_menu, accept: Shift+C, send_sequence: "{Control+Left}c{Control+Right}" }
-    - { when: has_menu, accept: Shift+D, send_sequence: "{Control+Left}d{Control+Right}" }
-    - { when: has_menu, accept: Shift+E, send_sequence: "{Control+Left}e{Control+Right}" }
-    - { when: has_menu, accept: Shift+F, send_sequence: "{Control+Left}f{Control+Right}" }
-    - { when: has_menu, accept: Shift+G, send_sequence: "{Control+Left}g{Control+Right}" }
-    - { when: has_menu, accept: Shift+H, send_sequence: "{Control+Left}h{Control+Right}" }
-    - { when: has_menu, accept: Shift+I, send_sequence: "{Control+Left}i{Control+Right}" }
-    - { when: has_menu, accept: Shift+J, send_sequence: "{Control+Left}j{Control+Right}" }
-    - { when: has_menu, accept: Shift+K, send_sequence: "{Control+Left}k{Control+Right}" }
-    - { when: has_menu, accept: Shift+L, send_sequence: "{Control+Left}l{Control+Right}" }
-    - { when: has_menu, accept: Shift+M, send_sequence: "{Control+Left}m{Control+Right}" }
-    - { when: has_menu, accept: Shift+N, send_sequence: "{Control+Left}n{Control+Right}" }
-    - { when: has_menu, accept: Shift+O, send_sequence: "{Control+Left}o{Control+Right}" }
-    - { when: has_menu, accept: Shift+P, send_sequence: "{Control+Left}p{Control+Right}" }
-    - { when: has_menu, accept: Shift+Q, send_sequence: "{Control+Left}q{Control+Right}" }
-    - { when: has_menu, accept: Shift+R, send_sequence: "{Control+Left}r{Control+Right}" }
-    - { when: has_menu, accept: Shift+S, send_sequence: "{Control+Left}s{Control+Right}" }
-    - { when: has_menu, accept: Shift+T, send_sequence: "{Control+Left}t{Control+Right}" }
-    - { when: has_menu, accept: Shift+U, send_sequence: "{Control+Left}u{Control+Right}" }
-    - { when: has_menu, accept: Shift+V, send_sequence: "{Control+Left}v{Control+Right}" }
-    - { when: has_menu, accept: Shift+W, send_sequence: "{Control+Left}w{Control+Right}" }
-    - { when: has_menu, accept: Shift+X, send_sequence: "{Control+Left}x{Control+Right}" }
-    - { when: has_menu, accept: Shift+Y, send_sequence: "{Control+Left}y{Control+Right}" }
-    - { when: has_menu, accept: Shift+Z, send_sequence: "{Control+Left}z{Control+Right}" }
-    - { when: has_menu, accept: Shift+BackSpace, send_sequence: "{Control+Left}{BackSpace}{Control+Right}" }
 
 # 拼写设定
 speller:
 # table_translator翻译器，支持自动上屏。例如 “zmhu”可以自动上屏“怎么回事”
 #  auto_select: true
-  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}|;[a-z]
+#  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}|;[a-z]
 #  auto_select_pattern: ^;(\w+|;)
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
   alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`/
@@ -354,6 +342,7 @@ speller:
 recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
+    reverse_tiger: "^![a-z]*'?$"
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols.yaml 的 symbols
     unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@number_translator，数字金额大写
@@ -375,12 +364,3 @@ octagram:
         collocation_penalty: -6
         weak_collocation_penalty: -12
         rear_penalty: -18
-      translator/contextual_suggestions: true # 是否使用语言模型优化输出结果〔需配合 grammar 使用〕
-      translator/max_homophones: 4 # 最大同音簇长度〔需配合 grammar 使用〕
-      translator/max_homographs: 2 # 最大同形簇长度〔需配合 grammar 使用〕
-      translator/dynamic_model: true  # 启用动态语言模型
-      translator/segment_length: 4  # 设置分词长度
-      translator/prioritize_quality: true  # 启用优先质量选项
-      translator/max_phrase_length: 7  # 设置短语的最大长度，如果主要输入单词或短短的短语，可以设置为4。句子更长一些
-      translator/enable_completion: true  # 启用候选词补全
-      translator/max_candidates: 10  # 设置最大候选词数量

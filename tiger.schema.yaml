@@ -7,6 +7,8 @@ schema:
   name: "虎码官方单字"
   schema_id: tiger
   version: 0.9
+  dependencies:
+    - longxiang
 
 switches:
   - name: ascii_mode
@@ -15,6 +17,7 @@ switches:
   - name: full_shape
     states: [ 半, 全 ]
   - name: ascii_punct
+    reset: 1
     states: [ 。, ． ]
   # - options: [ gbk+emoji, utf8 ]
   #   states: [ GBK, UTF-8 ]
@@ -52,6 +55,7 @@ speller:
 
 translator:
   dictionary: tiger
+  prism: tiger
   enable_charset_filter: false
   enable_encoder: true
   enable_sentence: false
@@ -78,6 +82,7 @@ key_binder:
 #  import_preset: default
   bindings:
     - {accept: semicolon, send: 2, when: has_menu}
+    - {accept: comma, send: 3, when: has_menu}
 
 recognizer:
   import_preset: default
