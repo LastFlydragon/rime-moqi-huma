@@ -18,8 +18,6 @@ import_tables:
   - dragon_dicts/8105     # 常用字表
 #  - dragon_dicts/41445     # 大字符集字表
 #  - dragon_dicts/chars     # 全字表,包括常用和大字符集
-  - dragon_dicts/base     # 基础词库
-  - dragon_dicts/ext      # 扩展词库
 #  - dragon_dicts/base     # 基础词库
 #  - dragon_dicts/ext      # 扩展词库
 #  - dragon_dicts/words     # 细胞词库 低频字词
