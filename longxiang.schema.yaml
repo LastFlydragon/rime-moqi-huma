@@ -10,7 +10,6 @@ schema:
   description: |
     万象拼音白霜词库，自然龙音码加墨奇形辅码，简称龙象
   dependencies:
-    - melt_eng        # 英文输入，作为次翻译器挂载到拼音方案
     - tiger
 
 # 开关
@@ -35,12 +34,13 @@ switches:
   - name: traditionalization
     states: [ 简, 繁 ]
 
-<<<<<<< HEAD
-pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
-  candidate_length: 3         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
-  fuzhu_type: moqi
-  corrector: true              # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
-  corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
+
+# pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
+#   candidate_length: 3         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
+#   fuzhu_type: moqi
+#   corrector: true              # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
+#   corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
+
 
 # 输入引擎
 engine:
@@ -71,13 +71,11 @@ engine:
     - lua_translator@*number_translator  # 数字、金额大写
     - lua_translator@*calculator        # 计算器
     - table_translator@custom_phrase    # 自定义短语 custom_phrase.txt
-    - table_translator@melt_eng         # 英文输入
-    - table_translator@cn_en            # 中英混合词汇
     - table_translator@chengyu            # 简码成语
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
-    - reverse_lookup_translator@reverse_tiger
+    - reverse_lookup_translator
     - lua_filter@*long_word_filter                  #长词优先      
     - lua_filter@*autocap_filter                    # 英文自动大写
     - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
@@ -85,13 +83,12 @@ engine:
     - simplifier@emoji                              # Emoji
     - simplifier@traditionalize                     # 简繁切换
     - simplifier@mars                               #火星文
-    - simplifier@chinese_english                    #中英翻译
     - simplifier@moqi_chaifen
     - simplifier@pinyinhint
     - lua_filter@*is_in_user_dict                   # 根据是否在用户词典，在结尾加上一个星号 *
 #    - lua_filter@*cn_en_spacer                     #启用时中英混输为中英混输词条（cn_en.dict.yaml）自动增加空格，示例：`VIP中P` → `VIP 中 P`              
 #    - lua_filter@*en_spacer                         #启用时中文状态下输入英文单词后面自动追加空格
-    - lua_filter@*pro_comment_format                #超级注释模块，支持简码前置、错词提示、辅助码显示，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
+#    - lua_filter@*pro_comment_format                #超级注释模块，支持简码前置、错词提示、辅助码显示，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
     - uniquifier                                    # 去重
 
 
@@ -181,23 +178,16 @@ translator:
 #  secondary_quality: 0.8  # 设置次要质量
   spelling_hints: 10             # 将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   always_show_comments: true    # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供pro_comment_format.lua做判断用。
-  comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
+#  comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
-#    - xform/([a-z][a-z][a-z][a-z])o/$1°/
-
-reverse_tiger:
-  dictionary: tiger
-  db_class: stabledb
-  tag: reverse_tiger
-  enable_completion: true
-  prism: tiger
-  prefix: "!"
-  suffix: "'"
-  tips: "虎>龙"
+    - xform/([a-z][a-z][a-z][a-z])o/$1°/
 
 reverse_lookup:
-  extra_tags:
-    - reverse_tiger
+  dictionary: tiger
+  db_class: stabledb
+  prefix: "O"
+  suffix: "'"
+  tips: "虎>龙"
 
 # 自定义短语
 custom_phrase:
@@ -217,29 +207,6 @@ chengyu:
   enable_completion: false
   initial_quality: 1.2 #本表词和系统词重码居后
 
-
-# 次翻译器，英文
-melt_eng:
-  dictionary: melt_eng     # 挂载词库 melt_eng.dict.yaml
-  db_class: stabledb
-  enable_sentence: false   # 禁止造句
-  enable_user_dict: false  # 禁用用户词典，是否开启自动调频
-  initial_quality: 1.1     # 初始权重
-  comment_format:          # 自定义提示码
-    - xform/.*//           # 清空提示码
-
-
-# 中英混合词汇
-cn_en:
-  dictionary: ""
-  user_dict: en_dicts/cn_en_double_pinyin
-  db_class: stabledb
-  enable_completion: true
-  enable_sentence: false
-  initial_quality: 0.5
-  comment_format:
-    - xform/^.+$//
-
 # Emoji
 emoji:
   option_name: emoji
@@ -250,14 +217,6 @@ emoji:
 mars:
   opencc_config: martian.json 
   option_name: mars
-
-#中文转英文
-chinese_english:
-  option_name: chinese_english
-  opencc_config: chinese_english.json
-  tips: char
-  comment_format:
-    - "xform/-/ /"
 
 # 显示墨奇码拆分
 moqi_chaifen:
@@ -307,7 +266,7 @@ key_binder:
     - { when: has_menu, accept: semicolon, send: 2 }
 #    - { when: has_menu, accept: comma, send: 3 }
 #使用Control+e进入翻译模式
-    - { when: has_menu, accept: "Control+e", toggle: chinese_english}
+#    - { when: has_menu, accept: "Control+e", toggle: chinese_english}
     - { when: has_menu, accept: "Control+p", toggle: moqi_chaifen }
 #使用快捷键Control+q开启和关闭辅助码显示，使用快捷键Control+p启用增强（外挂）辅助码显示
     - { when: has_menu, accept: "Control+q", toggle: fuzhu_switch }
@@ -326,7 +285,7 @@ speller:
 #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}|;[a-z]
 #  auto_select_pattern: ^;(\w+|;)
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`/!
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`/
   # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
   delimiter: " '"  # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
@@ -343,7 +302,7 @@ speller:
 recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
-    reverse_tiger: "^![a-z]*'?$"
+    reverse_lookup: "^O[a-z]*'?$"
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols.yaml 的 symbols
     unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@number_translator，数字金额大写
