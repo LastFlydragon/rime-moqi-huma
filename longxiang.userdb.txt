@@ -2,42 +2,50 @@
 #@/db_name	longxiang.userdb
 #@/db_type	tabledb
 #@/rime_version	1.11.2
-#@/tick	298
+#@/tick	346
 按	aa[fn	2
 不会	bh[ab hf[ry	1
+不出	bh[ab ia[uu	1
 不记得	bh[ab jt[yj dr[rc	1
 不匹配	bh[ab pg[ke pk[yj	3
 不知道	bh[ab vj[uk dv[zz	2
 不行	bh[ab xn[rd	1
-不用	bh[ab yy[kf	1
+不用	bh[ab yy[kf	2
 部署	bh[le um[so	1
 部首	bh[le uz[bz	2
 不会读	bl[ab hf[ry dl[yd	1
 吧	bl[kb	1
 本来	bo[ma ld[am	1
+般若	bp[vu re[ck	1
 包括	bq[bs kp[fu	1
 包里	bq[bs lg[tt	1
 报错	bv[fy cp[jo	1
 并	bw[bk	2
+保留	bx[rm lm[pt	0
+词典	cb[yk dp[qb	2
 词库	cb[yk kh[gi	3
 仓	cu[rv	1
 但会	da[rd hf[ry	1
-的	db[bu	15
+的	db[bu	21
 得	de[rc	1
 大词	di[ar cb[yk	0
 大词库	di[ar cb[yk kh[gi	1
 大字符	di[ar zt[bz fl[vc	2
+掉	dl[fu	2
 读	dl[yd	1
 打	dm[fd	2
 打不出	dm[fd bh[ab ia[uu	0
 打不出字	dm[fd bh[ab ia[uu zt[bz	2
 打出	dm[fd ia[uu	1
 打开	dm[fd kb[ac	1
+打字	dm[fd zt[bz	1
 打字时	dm[fd zt[bz ub[oc	1
 单字	dn[bu zt[bz	4
 当然	du[xe rp[xh	1
 定制	dw[bz vt[nd	1
 都	dx[le	4
+都去	dx[le qf[ts	1
+导致	dx[sc vt[gw	1
 分隔符	fe[bd ge[eg fl[vc	2
 符	fl[vc	1
 辅码	fm[if mm[um	2
@@ -48,18 +56,21 @@
 该字	gb[yr zt[bz	1
 格式	ge[mk ut[yg	3
 跟	ge[zg	1
+更快	gf[an kf[xg	1
 给	gj[sk	2
-功能	gk[gl nf[sb	1
+功能	gk[gl nf[sb	3
+干脆	gn[au cf[ov	1
 搞定了	gx[fk dw[bz lr[al	1
 搞了个	gx[fk lr[al gi[rl	1
 汉心	ha[dy xh[dd	1
 换成	hc[fr if[wv	1
 还有	hd[zb yz[uo	1
-和	he[hk	6
-会	hf[ry	1
+和	he[hk	7
+会	hf[ry	2
 虎	hm[hj	1
 虎码	hm[hj mm[um	12
 候选	hr[ru xs[ze	1
+华而不实	ht[ru ek[al bh[ab ub[bd	1
 好不好用	hx[nz bh[ab hx[nz yy[kf	0
 好多	hx[nz ds[xx	1
 好了	hx[nz lr[al	1
@@ -68,11 +79,14 @@
 超级	iq[tk jb[sj	1
 超级注释	iq[tk jb[sj vh[dv ut[cf	1
 查找	iu[md vx[fg	1
-常用	iw[xj yy[kf	2
+常用	iw[xj yy[kf	3
+超级	ix[tk jb[sj	1
 集	jb[rm	2
 加上	jd[lk ud[ba	2
-精简	je[mo jp[vo	2
+精简	je[mo jp[vo	3
+精简版	je[mo jp[vo bo[py	1
 就	jo[wy	4
+简词	jp[vo cb[yk	1
 记不清	jt[yj bh[ab qe[do	2
 看看	ka[uo ka[uo	0
 看了	ka[uo lr[al	1
@@ -86,9 +100,9 @@
 理想	lg[wl xu[mx	1
 龙	lj[yp	3
 龙码	lj[yp mm[um	10
-龙象	lj[yp xe[du	1
+龙象	lj[yp xe[du	2
 啦	ll[kl	1
-了	lr[al	16
+了	lr[al	18
 另外	lw[kl wo[xb	1
 魔然	me[gg rp[xh	1
 墨奇	mg[lt qb[dk	3
@@ -96,6 +110,7 @@
 码	mm[um	2
 没人	mr[du rs[pn	1
 没事	mr[du ut[gy	1
+没啥用	mr[du uu[kg yy[kf	1
 能用了	nf[sb yy[kf lr[al	1
 拿来	nu[ru ld[am	0
 拿来用	nu[ru ld[am yy[kf	1
@@ -103,20 +118,23 @@
 拼音	ph[fk yh[lo	1
 其实	qb[cb ub[bd	1
 青	qe[fo	1
-去掉	qf[ts dl[fu	1
+去掉	qf[ts dl[fu	3
 去除	qf[ts il[em	1
 全	qo[rw	1
+仍然	rf[rn rp[xh	1
 如果	rl[nk gl[tm	1
 然后	rp[xh hr[ik	1
 人家	rs[pn jd[bu	1
 人气	rs[pn qt[pv	0
 人气旺	rs[pn qt[pv wd[ow	1
+速度	sh[zu dh[gy	1
 所以	sl[hj yg[lr	1
 他	tl[ry	1
 天行者	tr[ad xn[rd vl[lo	1
 调整	tu[yk vy[uv	2
 输入	ua[id rh[pn	1
 输入法	ua[id rh[pn fm[dq	2
+什么	us[ru mr[ps	1
 室	ut[bt	1
 事	ut[gy	1
 是	ut[oz	5
@@ -130,21 +148,25 @@
 收了	ux[jw lr[al	1
 手机	uz[pf jj[mj	1
 正好	vf[av hx[nz	1
+只	vg[kb	0
+只保留	vg[kb bx[rm lm[pt	1
 只有	vg[kb yz[uo	1
-注释	vh[dv ut[cf	2
+注释	vh[dv ut[cf	3
 注意到	vh[dv yt[lx dv[gd	1
+之类	vj[dn lk[md	1
 支持	vj[uy ib[fc	1
 终于	vk[sd ym[au	1
 主要	vm[wt yx[xn	1
 折腾	vr[fj tf[om	2
-万象	wa[av xe[du	4
+万象	wa[av xe[du	5
 旺	wd[ow	0
 我	wi[ga	5
+为了	wk[ld lr[al	1
 为什么	wk[ld us[ru mr[ps	1
 为啥	wk[ld uu[kg	1
 无坚不摧	wl[ay jr[lt bh[ab ct[fv	1
 蛙	wl[it	2
-问题	wo[mk tb[oy	2
+问题	wo[mk tb[oy	3
 完美	wp[by mj[yd	1
 文件	ws[wx ja[rn	1
 现成	xa[wj if[wv	1
@@ -156,12 +178,15 @@
 形	xn[kp	1
 行	xn[rd	1
 想法	xu[mx fm[dq	1
+性能	xw[xu nf[sb	1
 修复	xz[rp fh[pw	8
+英语	ye[cy ys[yk	2
 应该	ye[ga gb[yr	1
 已经	yg[kv je[sj	1
 音	yh[lo	2
 音形	yh[lo xn[kp	2
 一些	yj[aa xk[ve	1
+也是	yl[vv ut[oz	1
 原来是	yo[ix ld[am ut[oz	2
 用	yy[kf	5
 用的	yy[kf dr[bu	1
@@ -170,10 +195,9 @@
 增加	zc[to jd[lk	1
 最适合	zf[oy ut[zu he[rk	1
 怎么	zo[vx mr[ps	1
-字	zt[bz	3
+字	zt[bz	4
 字词	zt[bz cb[yk	1
 字词库	zt[bz cb[yk kh[gi	1
 字频	zt[bz pc[vy	1
 自己	zt[po jg[kv	1
 自然	zt[po rp[xh	0
-自然吗	zt[po rp[xh mm[km	1

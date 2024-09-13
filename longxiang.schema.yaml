@@ -75,7 +75,6 @@ engine:
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
-    - reverse_lookup_translator
     - lua_filter@*long_word_filter                  #长词优先      
     - lua_filter@*autocap_filter                    # 英文自动大写
     - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
@@ -86,9 +85,6 @@ engine:
     - simplifier@moqi_chaifen
     - simplifier@pinyinhint
     - lua_filter@*is_in_user_dict                   # 根据是否在用户词典，在结尾加上一个星号 *
-#    - lua_filter@*cn_en_spacer                     #启用时中英混输为中英混输词条（cn_en.dict.yaml）自动增加空格，示例：`VIP中P` → `VIP 中 P`              
-#    - lua_filter@*en_spacer                         #启用时中文状态下输入英文单词后面自动追加空格
-#    - lua_filter@*pro_comment_format                #超级注释模块，支持简码前置、错词提示、辅助码显示，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
     - uniquifier                                    # 去重
 
 
@@ -176,36 +172,19 @@ translator:
   encode_commit_history: true   # 预留历史上屏自动编码成词
   initial_quality: 3       # 初始质量拼音的权重应该比英文大
 #  secondary_quality: 0.8  # 设置次要质量
-  spelling_hints: 10             # 将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
+  spelling_hints: 3             # 将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   always_show_comments: true    # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供pro_comment_format.lua做判断用。
-#  comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
     - xform/([a-z][a-z][a-z][a-z])o/$1°/
 
-reverse_lookup:
-  dictionary: tiger
-  db_class: stabledb
-  prefix: "O"
-  suffix: "'"
-  tips: "虎>龙"
-
-# 自定义短语
+# 自定义简词和短语
 custom_phrase:
   dictionary: ""
-  user_dict: custom_phrase  # 需要手动创建 custom_phrase.txt 文件
+  user_dict: user_super_phrase  # 需要手动创建 user_super_phrase.txt 文件
   db_class: stabledb
   enable_completion: false # 补全提示
   enable_sentence: false   # 禁止造句
   initial_quality: 99      # custom_phrase 的权重应该比 pinyin 和 melt_eng 大
-
-# 简码词库导入位于jm_dicts得txt文件词库
-chengyu:
-  dictionary: ""
-  user_dict: jm_dicts/chengyu
-  db_class: stabledb
-  enable_sentence: false
-  enable_completion: false
-  initial_quality: 1.2 #本表词和系统词重码居后
 
 # Emoji
 emoji:
@@ -274,8 +253,6 @@ key_binder:
 # 使用 tab 在不同音节之间跳转
     - { when: has_menu, accept: "Tab", send: "Control+Right" }
     - { when: composing, accept: "Tab", send: "Control+Right" }
-#通过stick.lua显示到注释里，用来上屏带/的简码词汇。最好是用句号，这样可以与手机上可以做同样的定义，保持同样的习惯
-    - { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" } 
     # - { when: composing, match: "[a-z]{2}", accept: Tab, send: '|' }
 
 # 拼写设定
@@ -302,7 +279,6 @@ speller:
 recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
-    reverse_lookup: "^O[a-z]*'?$"
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols.yaml 的 symbols
     unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@number_translator，数字金额大写
