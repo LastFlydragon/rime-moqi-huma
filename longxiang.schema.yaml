@@ -34,14 +34,6 @@ switches:
   - name: traditionalization
     states: [ 简, 繁 ]
 
-
-# pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
-#   candidate_length: 3         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
-#   fuzhu_type: moqi
-#   corrector: true              # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
-#   corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
-
-
 # 输入引擎
 engine:
   processors:
@@ -71,7 +63,7 @@ engine:
     - lua_translator@*number_translator  # 数字、金额大写
     - lua_translator@*calculator        # 计算器
     - table_translator@custom_phrase    # 自定义短语 custom_phrase.txt
-    - table_translator@chengyu            # 简码成语
+    - table_translator@user_super_phrase    # 自定义短语 user_super_phrase.txt
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
@@ -177,14 +169,23 @@ translator:
   preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
     - xform/([a-z][a-z][a-z][a-z])o/$1°/
 
-# 自定义简词和短语
+# 自定义简字
 custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase  # 需要手动创建 custom_phrase.txt 文件
+  db_class: stabledb
+  enable_completion: false # 补全提示
+  enable_sentence: false   # 禁止造句
+  initial_quality: 6      # custom_phrase 的权重应该比 pinyin 和 melt_eng 大
+
+# 自定义简词和短语
+user_super_phrase:
   dictionary: ""
   user_dict: user_super_phrase  # 需要手动创建 user_super_phrase.txt 文件
   db_class: stabledb
   enable_completion: false # 补全提示
   enable_sentence: false   # 禁止造句
-  initial_quality: 6      # custom_phrase 的权重应该比 pinyin 和 melt_eng 大
+  initial_quality: 5.5      # custom_phrase 的权重应该比 pinyin 和 melt_eng 大
 
 # Emoji
 emoji:
