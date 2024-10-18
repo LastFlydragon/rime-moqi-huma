@@ -4,11 +4,10 @@ schema:
   description: |
     虎码官方单字
     敲 ` 鍵進入拼音反查
-  name: "虎码官方单字"
+  name: "虎码单字"
   schema_id: tiger
   version: 0.9
-  dependencies:
-    - longxiang
+  dependencies: longxiang
 
 switches:
   - name: ascii_mode
@@ -17,7 +16,6 @@ switches:
   - name: full_shape
     states: [ 半, 全 ]
   - name: ascii_punct
-    reset: 1
     states: [ 。, ． ]
   # - options: [ gbk+emoji, utf8 ]
   #   states: [ GBK, UTF-8 ]
@@ -66,6 +64,7 @@ translator:
 
 reverse_lookup:
   dictionary: longxiang
+  prism: longxiang
   prefix: "!"
   suffix: "'"
   tips: "龙>虎"
@@ -92,4 +91,4 @@ recognizer:
 
 
 #menu:
-#  page_size: 5
+#  page_size: 3

@@ -3,15 +3,17 @@
 ## 说明
 基于rime平台的中文输入法解决方案
 
-基于墨奇音形,替换了万象拼音的字词库,用上自然龙音码。
-整合了墨奇万象方案的词库,合并细胞词库和腾讯词库并去重,保留了白霜词频。
+基于墨奇音形万象拼音引擎,匹配上自然龙音码。
+龙象音形 = 自然龙音码 + 墨奇形码 + 万象词库引擎
+整合了墨奇万象方案的带音调词库,合并细胞词库和腾讯词库并去重,保留了词频。
 由于合并后的词库太大,分成了几个小细胞库
 用户可以自己选择开启
 
 包里还有虎码单字方案,并增加了按"!"反查,用虎码打字时如果不记得怎么拆字了,可以按"!"然后输入龙象音形来查找该字的虎码
 
 开启了＂，＂和＂．＂键翻页候选字，完全是个人习惯。
-其实用了龙码和墨奇，候选字应该不用翻页啦
+其实用了龙码和墨奇，候选字就应该不用翻页啦
+我基本上只用2选和3选, 用";"和","按钮
 
 - 主要配置文件:
   - schema: longxiang # 龙象般若
@@ -19,11 +21,14 @@
 ### [FAQ]<[安装简要指南](https://github.com/LastFlydragon/rime-moqi-huma/blob/main/docs/INSTALL.md)>
 （常见问题请参考墨奇音形的[文档](https://github.com/gaboolic/rime-shuangpin-fuzhuma/blob/main/md/FAQ.md)
 或加入ＱＱ群讨论）q羣696353204
+
 ### 鸣谢
 [墨奇音形]<https://github.com/gaboolic/rime-shuangpin-fuzhuma>
 [墨奇万象](https://github.com/gaboolic/rime-shuangpin-fuzhuma)
+
 ### 更新日志
 [更新日志]<https://github.com/LastFlydragon/rime-moqi-huma/blob/main/docs/update-log.md>
+
 ## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=LastFlydragon/rime-moqi-huma&type=Date)](https://star-history.com/#LastFlydragon/rime-moqi-huma&Date)
 

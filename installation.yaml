@@ -1,6 +1,7 @@
-distribution_code_name: Weasel
-distribution_name: Weasel
-distribution_version: 0.16.1
-install_time: "Wed Aug 21 14:52:48 2024"
-installation_id: "6758a488-66c2-417e-8ffa-f066140fb290"
-rime_version: 1.11.2
+distribution_code_name: "fcitx-rime"
+distribution_name: Rime
+distribution_version: 5.1.6
+install_time: "Thu Sep  5 23:35:39 2024"
+installation_id: "d3f0dbf9-dc3b-434e-bd50-6d7ab2bac2d8"
+rime_version: 1.11.0
+update_time: "Fri Sep 13 00:28:34 2024"

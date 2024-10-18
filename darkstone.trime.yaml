@@ -9,15 +9,15 @@ other:
   c: &VJY 15 #圆角
 
 height:
-  A: &VJG 42 #行高
-  B: &VJM 42 #空格行高
-  C: &HXG 32 #候选区高度
+  A: &VJG 38 #行高
+  B: &VJM 38 #空格行高
+  C: &HXG 16 #候选区高度
   D: &CJBJ 31.5 #超级编辑 底栏
   E: &ZGH 1 #统一增高行
 
 #临时
-  A: &DUG 42 #键高
-  A: &DUM 48 #末行
+  A: &DUG 38 #键高
+  A: &DUM 3 #末行
   B: &DUH 2 #行距
   C: &DUL 2 #竖距
   D: &DUY 10 #圆角
@@ -29,7 +29,7 @@ height:
   D: &FHY 10 #圆角
 
 #数字
-  A: &SZG 48 #键高
+  A: &SZG 38 #键高
   B: &SZH 4 #行距
   C: &SZL 3 #竖距
   D: &SZY 10 #圆角
@@ -53,7 +53,7 @@ style:
   candidate_view_height: *HXG #候选区高度
   color_scheme: default #配色方案
   comment_font: FZXK.ttf #候选窗和状态栏提示字型
-  comment_height: 10 #候选窗和状态栏提示区高度
+  comment_height: 15 #候选窗和状态栏提示区高度
   comment_on_top: true #候选窗和状态栏提示在上方true或右侧false
   comment_text_size: 12 #候选窗和状态栏提示字号
   hanb_font: FZXK.ttf #扩充字型
@@ -67,7 +67,7 @@ style:
     border: 1 #候选窗口边框宽度
     max_width: *XFK #最大宽度，超过则自动换行
     max_height: 90 #最大高度
-    min_width: 0 #最小宽度
+    min_width: 180 #最小宽度
     min_height: 0 #最小高度
     margin_x: 10 #水平边距   #悬浮窗宽
     margin_y: 0 #竖直边距   #悬浮窗高
@@ -75,7 +75,7 @@ style:
     line_spacing_multiplier: 1 #候选词的行间距(倍数)
     spacing: 3 #悬浮窗偏移量
     round_corner: 50 #候选窗口圆角
-    alpha: 198 #透明度(0-255)
+    alpha: 208 #透明度(0-255)
     elevation: 1 #阴影(>=Android5.0)
     background: candidate_text_color #颜色色或者backgrounds目录下的图片文件名，此项无效时后面配色的text_back_color则生效
     movable: false #是否可移动窗口，或仅移动一次 true|false|once
@@ -85,11 +85,11 @@ style:
    # - {start: "\n", label: "", candidate: "%s", comment: "%s", end: "", sep: "　️️"}
   key_font: FZXK.ttf #键盘字型
   key_height: *FHG #符号键盘键高
-  key_long_text_size: 15 #两字以上时键字号
-  key_text_size: 21 #键字号
+  key_long_text_size: 12 #两字以上时键字号
+  key_text_size: 18 #键字号
   key_width: 11 #键宽，占银幕宽的百分比
   keyboards: [.default, qtyw, qtxd, qtbj, cjbj, qtsz, qtlssz, qtzb, qtyb, qtxh, qtxh2, qtVJ, qtbz, qtux, qtzm, qtbq, qtbq1, qtbq2, qtbq3, qtbq4, qtbq5, qtts1, qtts2, qtts3, qtts4, qtts5, qtts6] #声明
-  label_text_size: 14 #悬浮窗序号字号
+  label_text_size: 12 #悬浮窗序号字号
   label_font: FZXK.ttf #标签字型
   latin_font: latin.ttf #西文字型
   latin_locale: en_US #西文语言
@@ -104,7 +104,7 @@ style:
   shadow_radius: 0.0 #按键阴影半径
   speech_opencc_config: none #语音输入简繁转换
   symbol_font: FZXK.ttf #符号字型
-  symbol_text_size: 10 #符号字号 上标字号
+  symbol_text_size: 8 #符号字号 上标字号
   text_font: FZXK.ttf #编码字型
   text_size: 16 #编码字号
   vertical_correction: -3 #按键纵向偏移，负数下移接触面
@@ -214,53 +214,7 @@ colors:
 #配色，
 preset_color_schemes:
   default:
-    name: "iOS" #ios
-    back_color: 0xffD1D4D9 #候选背景
-    hilited_candidate_back_color: 0xaa007AFE   #首字 背景
-    hilited_key_back_color: *橙
-    hilited_key_text_color: *白
-    key_back_color: *白
-    key_symbol_color: *灰c
-    key_text_color: *黑
-    text_color: *黑 #次选
-    on_key_text_color: *红 #锁
-    AAA: *白
-    AAH: *橙
-    szb: 0xAAB1BB
-    szt: *白
-    szs: *白
-    kgt: *黑c
-    qszb: 0xAAB1BB   #数字键盘 功能键背景
-    qszt: *白   #字色 数字、符号
-    hcb: 0x007AFE
-    hct: *白
-
-  eeaa:
-    name: "Guge" #Guge 谷歌
-    back_color: 0xffeeeeee #候选背景
-    hilited_candidate_back_color: 0xFF4BCCD0   #首字 背景
-    hilited_key_back_color: *橙
-    hilited_key_text_color: *白
-    key_back_color: *白
-    key_symbol_color: *灰c
-    key_text_color: *黑
-    text_color: *黑 #次选
-    on_key_text_color: *红 #锁
-    AAA: *白
-    AAH: *橙
-    szb: 0xffe1e1e1
-    szt: *黑c
-    szs: *黑c
-    kgt: *黑c
-    qszb: 0xffe1e1e1   #数字键盘 功能键背景
-    qszt: *黑c   #字色 数字、符号
-    hcb: 0xFF82D0D2
-    hct: *白
-    fhb: 0xffe1e1e1
-    fhxzb: 0xFF82D0D2
-
-  eeea:
-    name: "出　彩" #出彩
+    name: "炫彩"
     back_color: *橙 #候选背景
     keyboard_back_color: *黑
     hilited_candidate_back_color: 0xFF58C7D5   #首字 背景
@@ -307,13 +261,13 @@ preset_color_schemes:
     Ykgt: *红
     hcb: 0xffD6BC67
     hct: *黑
-    ybd: 0xffAECCD7
+    ybd: QQQ
     bds: hct
     kgb: 0xff8FB191
+    shb: KKK
 
   eeeb:
     name: "骚　粉" #骚粉
-    author: 白焕
     back_color: 0xF9BBD0 #候选背景
     hilited_candidate_back_color: 0xFFF65B8F   #首字 背景
     hilited_key_back_color: 0xFFF65B8F
@@ -411,7 +365,6 @@ preset_color_schemes:
 
   eeee:
     name: "樱　花" #樱花
-    author: 白焕
     back_color: 0xDACBC4 #候选背景
     hilited_candidate_back_color: 0xFF7376   #首字 背景
     hilited_key_back_color: *橙
@@ -507,7 +460,6 @@ preset_color_schemes:
 preset_keyboards:
   default:
     ascii_mode: 0
-    author: "青 铜"
     lock: true
     height: *VJG
     horizontal_gap: *VJL
@@ -538,14 +490,14 @@ preset_keyboards:
       - {click: s, swipe_down: '~', hint: '}', long_click: '~', swipe_up: "}", key_back_color: SSS}
       - {click: d, swipe_down: '|', hint: '[', long_click: '|', swipe_up: "[", key_back_color: DDD}
       - {click: f, swipe_down: q_bj1, hint: ']', long_click: q_bj1, swipe_up: "]", key_back_color: FFF}
-      - {click: g, swipe_down: "t_yx", hint: '<', long_click: "t_yx", swipe_up: "<", key_back_color: GGG}
+      - {click: g, swipe_down: "RepeatCommit", hint: '<', long_click: "RepeatCommit", swipe_up: "<", key_back_color: GGG}
       - {click: h, swipe_down: '`', hint: '>', long_click: "`", swipe_up: ">", key_back_color: HHH}
       - {click: j, swipe_down: '!', hint: '(', long_click: "!", swipe_up: "(", key_back_color: JJJ}
       - {click: k, swipe_down: '?', hint: ')', long_click: "?", swipe_up: ")", key_back_color: KKK}
       - {click: l, swipe_down: '=', hint: '_', long_click: "=", swipe_up: "_", key_back_color: LLL}
       - {width: 5}
       # ❸
-      - {click: Shift_L, key_text_size: 14, composing: Escape, swipe_down: Hide, swipe_up: Candidate_switch, key_back_color: shb, key_text_color: SHt, width: 15}
+      - {click: Shift_L, key_text_size: 14, composing: Escape, swipe_down: Hide, swipe_up: Candidate_switch, key_back_color: shb, key_text_color: hct, width: 15}
       - {click: z, swipe_down: undo, long_click: undo, key_back_color: ZZZ}
       - {click: x, swipe_down: cut, long_click: cut, key_back_color: XXX}
       - {click: c, swipe_down: copy, long_click: copy, key_back_color: CCC}
@@ -553,13 +505,13 @@ preset_keyboards:
       - {click: b, swipe_down: redo, long_click: redo, hint: '说', swipe_up: sayit, key_back_color: BBB}
       - {click: n, swipe_down: "/", long_click: "/", hint: ':', swipe_up: ":", key_back_color: NNN}
       - {click: m, swipe_down: '\', long_click: '\', hint: '.', swipe_up: ".", key_back_color: MMM}
-      - {click: BackSpace, key_text_size: 15, swipe_up: DelH, swipe_down: select_H, key_back_color: hsb, key_text_color: hst, width: 15}
+      - {click: BackSpace, key_text_size: 15, swipe_up: DelH, swipe_down: select_H, key_back_color: RRR, key_text_color: hct, width: 15}
       # ❹
-      - {height: *VJM, click: "q_sz", key_text_size: 14, has_menu: Page_Down, long_click: q_xd, swipe_down: q_xd, key_back_color: hcb, key_text_color: hct, key_symbol_color: szs, width: 18}
+      - {height: *VJM, click: "q_sz", key_text_size: 14, has_menu: Page_Down, long_click: q_xd, swipe_down: q_xd, swipe_up: Candidate_switch, hint: '藏', key_back_color: hcb, key_text_color: hct, key_symbol_color: szs, width: 18}
       - {click: ",", label: ",", key_text_size: 16, paging: Page_Up, long_click: '"', swipe_down: '"', key_back_color: ybd, key_text_color: hct, key_symbol_color: bds, width: 13}
-      - {click: space3, ascii: space1, swipe_up: q_ywjp, swipe_down: Hide, key_text_size: 9, long_click: "q_ywjp", swipe_left: Left, swipe_right: Right, key_back_color: kgb, key_text_color: kgt, width: 38}
+      - {click: space3, ascii: space1, swipe_up: q_ywjp, swipe_down: Hide, key_text_size: 9, long_click: "q_ywjp", swipe_left: Left, swipe_right: Right, key_back_color: hsb, key_text_color: hct, width: 38}
       - {click: ";", label: ";", key_text_size: 16, swipe_down: "'", long_click: "'", key_back_color: ybd, key_text_color: hct, key_symbol_color: bds, width: 13}
-      - {click: Return, key_text_size: 14, long_click: Color_settings1, swipe_up: Theme_settings, key_back_color: hcb, key_text_color: hct, key_symbol_color: hct, width: 18}
+      - {click: Return, key_text_size: 14, long_click: Color_settings1, swipe_up: Theme_settings, key_back_color: *橙, key_text_color: hct, key_symbol_color: hct, width: 18}
       # 增高行
       - {height: *ZGH, width: 100}
       # 仿 凉秋主题↓️ 删除注释 ，️↑加注释
@@ -648,10 +600,10 @@ preset_keyboards:
       - {click: "K_backk", key_back_color: 0x00}
       - {click: "K_backk", key_back_color: 0x00}
       - {click: "K_backk", key_back_color: 0x00}
-      - {click: "t_fhvjj", key_text_color: key_text_color, key_back_color: 0x00}
+      - {click: "t_fhvjj", key_text_color: key_text_color, key_back_color: KKK}
       - {click: "K_backk", key_back_color: 0x00, width: 10}
       # 第四行
-      - {click: "t_xdfh", key_back_color: 0x00, width: 100}
+      - {click: "t_xdfh", key_back_color: KKK, width: 100}
       # 增高行
       - {height: *ZGH, width: 100}
     key_hint_offset_y: *VJhintY
@@ -659,7 +611,6 @@ preset_keyboards:
     width: 16
 
   qtbj:
-    author: 青 铜 #编辑，
     height: *SZG #高
     horizontal_gap: *SZL #竖
     vertical_gap: *SZH #行
@@ -697,7 +648,6 @@ preset_keyboards:
     width: 20
 
   cjbj:
-    author: 青 铜 #超级编辑，
     height: 40 #高
     horizontal_gap: 1 #竖
     vertical_gap: 1 #行
@@ -763,7 +713,6 @@ preset_keyboards:
     width: 10
 
   qtsz:
-    author: 青 铜 #数字，
     height: *SZG
     horizontal_gap: *SZL
     vertical_gap: *SZH
@@ -804,7 +753,6 @@ preset_keyboards:
     width: 15
 
   qtlssz:
-    author: 青 铜 #临时，
     ascii_mode: 1
     height: *DUG
     horizontal_gap: *DUL
@@ -848,7 +796,6 @@ preset_keyboards:
     width: 12
 
   qtbz:
-    author: 青 铜 #帮助，
     height: 38 #高
     horizontal_gap: 0 #竖
     vertical_gap: 1 #行
@@ -872,7 +819,6 @@ preset_keyboards:
     width: 100
 
   qtzb:
-    author: 青 铜 #中文，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -944,7 +890,6 @@ preset_keyboards:
     width: 10
 
   qtyb:
-    author: 青 铜 #英文，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1016,7 +961,6 @@ preset_keyboards:
     width: 10
 
   qtxh:
-    author: 青 铜 #序号，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1088,7 +1032,7 @@ preset_keyboards:
     width: 10
 
   qtxh2:
-    author: 青 铜 #序号2，
+
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1160,7 +1104,6 @@ preset_keyboards:
     width: 10
 
   qtux:
-    author: 青 铜 #数学，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1232,7 +1175,7 @@ preset_keyboards:
     width: 10
 
   qtzm:
-    author: 青 铜 #字母，
+
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1316,7 +1259,6 @@ preset_keyboards:
     width: 7.5
 
   qtbq:
-    author: 青 铜 #表情，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1388,7 +1330,6 @@ preset_keyboards:
     width: 10
 
   qtbq1:
-    author: 青 铜 #植物，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1460,7 +1401,6 @@ preset_keyboards:
     width: 10
 
   qtbq2:
-    author: 青 铜 #食物，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1532,7 +1472,6 @@ preset_keyboards:
     width: 10
 
   qtbq3:
-    author: 青 铜 #运动，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1604,7 +1543,6 @@ preset_keyboards:
     width: 10
 
   qtbq4:
-    author: 青 铜 #动物，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1676,7 +1614,6 @@ preset_keyboards:
     width: 10
 
   qtbq5:
-    author: 青 铜 #其他，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1748,7 +1685,6 @@ preset_keyboards:
     width: 10
 
   qtts1:
-    author: 青 铜 #箭头，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1824,7 +1760,6 @@ preset_keyboards:
     width: 10
 
   qtts2:
-    author: 青 铜 #星花，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1896,7 +1831,6 @@ preset_keyboards:
     width: 10
 
   qtts3:
-    author: 青 铜 #特殊1，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -1968,7 +1902,6 @@ preset_keyboards:
     width: 10
 
   qtts4:
-    author: 青 铜 #特殊2，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -2040,7 +1973,6 @@ preset_keyboards:
     width: 10
 
   qtts5:
-    author: 青 铜 #特殊3，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -2112,7 +2044,6 @@ preset_keyboards:
     width: 10
 
   qtts6:
-    author: 青 铜 #特殊4，
     ascii_mode: 0
     height: *FHG
     horizontal_gap: *FHL
@@ -2382,13 +2313,14 @@ preset_keys:
   Hide: {label: ... , send: BACK}
   BackSpace: {label: "<<<", preview: ⌫, repeatable: true, send: BackSpace}
   space: {repeatable: false, preview: ␣, functional: false, send: space} #空格
-  space1: {repeatable: true, preview: ␣, label: ️️◉️ ️Frost Wyrm, functional: true, send: space}
+  space1: {repeatable: true, preview: ␣, label: ️️◉️ ️Ink Dragon, functional: true, send: space}
   space2: {repeatable: true, preview: ␣, label: ␣, functional: true, send: space}
-  space3: {repeatable: true, preview: ␣, label: "◉️ 冰龙白虎", functional: false, send: space}
+  space3: {repeatable: true, preview: ␣, label: "◉️ 龙象般若", functional: false, send: space}
   Clear: {label: 全清, send: Clear}
   Escape: {label: Esc, functional: false, send: Escape}
   Insert: {label: Ins, send: Insert}
   DelH: {label: "Del↔", functional: false, text: "{End}{Shift+Home}{Delete}"}  #删除行
+  RepeatCommit: { label: 重复,  command: commit, option: "%1$s" } #重复输入刚上屏的内容
   Page_Up: {label: △, send: Page_Up, functional: false}
   Page_Down: {label: ▽, send: Page_Down, functional: false}
   Left: {label: ←, send: Left, repeatable: true, functional: false}

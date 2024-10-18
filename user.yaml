@@ -1,9 +1,13 @@
 var:
-  last_build_time: 1726141304
+  last_build_time: 1729170007
   option:
     ascii_punct: true
     emoji: false
-  previously_selected_schema: tiger
+    full_shape: false
+    fuzhu_switch: false
+    tone_display: false
+    traditionalization: false
+  previously_selected_schema: longxiang
   schema_access_time:
-    longxiang: 1726053423
-    tiger: 1726141258
+    longxiang: 1729170007
+    tiger: 1729158337
