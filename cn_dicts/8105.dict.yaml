@@ -1067,7 +1067,7 @@ sort: by_weight
 笪	dá;vd;va;vd;nd;hm;rf;tj;vd;	8
 耷	dā;de;de;ed,de;xu;kj;mq;db;de;	7
 靼	dá;gd;ga;gd;vd;tm;tf;af;cd;	5
-垯	da;td;tz;td;gq;gk,xk;gu;fd;td;	4
+垯	dá;td;tz;td;gq;gk,xk;gu;fd;td;	4
 溚	dá;dk;dk;dd,dh;ko;er;kd;ia;dk;	3
 瘩	dā;bk;bk;bd,bh;mo;kr;ad;ua;bk;	2
 褡	dā;pk;pk;yd,yh;ho;lr;td;pu;pk;	1
@@ -1214,6 +1214,8 @@ sort: by_weight
 棣	dì;ml;mn;ml;wo;de;ek;sv;ll;	140
 邸	dǐ;ue;de;ed;ub;hl,xl;bt;qa;ue;	138
 的	dī;bu;bu,b;bu;sh;hi,xx;ui;r,rq;bu;	0
+的	dí;bu;bu,b;bu;sh;hi,xx;ui;r,rq;bu;	0
+的	dì;bu;bu,b;bu;sh;hi,xx;ui;r,rq;bu;	0
 碲	dì;uj;uj;ud;ty;mb;mr;du;uj;	94
 嘀	dí;kg;kk;kd,kg;oo;rb;dc;ku;kk;	83
 睇	dì;od;op;od;su;bh;qt;hu;md;	76
@@ -1493,11 +1495,15 @@ sort: by_weight
 𫫇	ě;kx;kx;ke;on;;dh;kg;;	0
 诶	éi;yu;yu;yu,yy;cx;ik;so;yc;yd;	5330
 欸	éi;sq;sr;qy;pe;io;ke;ct;vr;	171
-嗯	en;kx;kx;ke;on;rp;dh;kl;kx;	10156
+嗯	én;kx;kx;ke;on;rp;dh;kl;kx;	10156
+嗯	ěn;kx;kx;ke;on;rp;dh;kl;kx;	10156
+嗯	èn;kx;kx;ke;on;rp;dh;kl;kx;	10156
 恩	ēn;yx;kx;xy;nn;wp;rh;ld;wx;	3845
 摁	èn;fx;fx;fe;jn;qp;uh;rl;fx;	897
 蒽	ēn;cx;cx;ce;zn;tp;lh;al;cx;	34
-嗯	eng;kx;kx;ke;on;rp;dh;kl;kx;	10156
+嗯	éng;kx;kx;ke;on;rp;dh;kl;kx;	10156
+嗯	ěng;kx;kx;ke;on;rp;dh;kl;kx;	10156
+嗯	èng;kx;kx;ke;on;rp;dh;kl;kx;	10156
 而	ér;al;al;aa;bb;ml;le;dm;aa;	546951
 二	èr;aa;aa;aa;uu;mm;me;fg;aa;	56390
 儿	ér;pv;pv;pg;kk;lu;pe;qt;pv;	9148
