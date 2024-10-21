@@ -7,7 +7,7 @@
 # 全拼和各个双拼有部分拼写规则不通用，需要修改
 ###############选择与之匹配的拼音方案#####################
 set_shuru_schema:
-  __include: algebra_zrm    #可选的选项有（algebra_pinyin, algebra_zrm, algebra_flypy, algebra_mspy, algebra_sogou, algebra_abc, algebra_ziguang）
+  __include: algebra_zrl    #可选的选项有（algebra_pinyin, algebra_zrm, algebra_flypy, algebra_mspy, algebra_sogou, algebra_abc, algebra_ziguang）
 
 ######################################################
 

@@ -17,8 +17,8 @@ use_preset_vocabulary: false
 #雙拼不支持 luna_pinyin.cn_en 詞庫，請用戶手動禁用。
 
 import_tables:
-  - cn_dicts/8105     # 字表
-#  - cn_dicts/41448      # 大字集词库
+  - cn_dicts/common     # 常用高频字字表
+#  - cn_dicts/rare      # 大字集词库,包括生僻字和低频字
   - cn_dicts/base     # 基础词库
   - cn_dicts/ext      # 扩展词库
   - cn_dicts/words      # 低频词库
