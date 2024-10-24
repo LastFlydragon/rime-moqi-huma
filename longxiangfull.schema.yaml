@@ -1,28 +1,34 @@
 # Rime schema
 # encoding: utf-8
 
+
 # 方案说明
 schema:
-  schema_id: longxiang
-  name: 龙象
+  schema_id: longxiangfull
+  name: 龙象般若
   version: "2024-10-08"
   author:
-    - 玄天之龙
-  description: |
+    - gaboolic,amzxyz,玄天之龙
+  description:
+    龙象般若
+    基于墨奇音形万象拼音引擎,匹配上自然龙音码。龙象音形 = 自然龙音码 + 墨奇形码 + 万象词库引擎
     万象拼音 支持常见双拼方案和全拼输入，辅助码同时支持墨奇;鹤形;自然码;简单鹤;仓颉首末;虎码首末;五笔前2;汉心码；采用万象归一的词库，换方案不换词库，不丢失用户词！
   dependencies:
+#    - melt_eng        # 英文输入，作为次翻译器挂载到拼音方案
+    - radical_pinyin  # 反查：部件拆字，反查及辅码
+    - stroke          #反查：笔画组字
 
-#本方案匹配词库解码顺序为：全拼拼音；墨奇;鹤形;自然码;简单鹤;虎码首末...
+#本方案匹配词库解码顺序为：全拼拼音；墨奇;鹤形;自然码;简单鹤;仓颉首末;虎码首末...
 #############DIY你想要的方案组合,试试搭配一个自然码+墨奇辅助的方案吧！###########################
 set_shuru_schema:         #配置此项就是选择什么输入法,同时拆分反查和中英文混输也将匹配该输入方案
   __include: algebra_zrl  #可选解码规则有   algebra_pinyin, algebra_zrm, algebra_flypy,  algebra_ziguang, algebra_sogou, algebra_mspy, algebra_abc  选择一个填入
 set_algebra_fuzhu:        #配置此项就是选择什么辅助码
   __include: fuzhu_moqi    #可选辅助码有：fuzhu_kong，fuzhu_moqi, fuzhu_tiger, fuzhu_hanxin 选择一个填入
-# pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
-#  candidate_length: 2         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
-#  fuzhu_type: moqi             # 用于匹配对应的辅助码注释显示，基于默认词典的可选注释类型有：( moqi, flypy, zrm, jdh, cj, tiger, wubi, hanxin) tone (这个参数特殊，在注释里显示声调，不算辅助码，也填入此处)选择一个填入，之所以单独列出是因为这里有更多的可配置性，而真正的辅助码默认只有8种
-#   corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
-########################以下是方案配置#################################################
+pro_comment_format:           # 超级注释模块，子项配置 true 开启，false 关闭
+  candidate_length: 2         # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
+  fuzhu_type: moqi             # 用于匹配对应的辅助码注释显示，基于默认词典的可选注释类型有：( moqi, tiger, hanxin) tone (这个参数特殊，在注释里显示声调，不算辅助码，也填入此处)选择一个填入，之所以单独列出是因为这里有更多的可配置性，而真正的辅助码默认只有8种
+  corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
+########################以下是方案配置######################################################
 
 # 开关
 # reset: 默认状态。注释掉后，切换窗口时不会重置到默认状态。
@@ -39,14 +45,14 @@ switches:
     states: [ 半, 全 ]
   - name: emoji
     states: [ :|, ;) ]
-#  - name: tone_display
-#    states: [ 调, 音 ]
-#  - name: fuzhu_switch
-#    states: [ 助, 辅 ]
+  - name: tone_display
+    states: [ 调, 音 ]
+  - name: fuzhu_switch
+    states: [ 助, 辅 ]
 #  - name: zrm_chaifen
 #    states: [ 然, 自 ]
-  - name: moqi_chaifen
-    states: [ 奇, 墨 ]
+#  - name: moqi_chaifen
+#    states: [ 奇, 墨 ]
 #  - name: search_single_char  # search.lua 的功能开关，辅码查词时是否单字优先
 #    abbrev: [词, 单]
 #    states: [正常, 单字]
@@ -71,6 +77,8 @@ engine:
     - ascii_segmentor
     - matcher
     - abc_segmentor
+    - affix_segmentor@radical_lookup  # 部件拆字自定义 tag
+    - affix_segmentor@reverse_stroke  #笔画反查
     - punct_segmentor
     - fallback_segmentor
   translators:
@@ -82,22 +90,32 @@ engine:
     - lua_translator@*number_translator  # 数字、金额大写
     - lua_translator@*calculator        # 计算器
     - table_translator@custom_phrase    # 自定义短语 custom_phrase.txt
+#    - table_translator@melt_eng         # 英文输入
+    - table_translator@cn_en            # 中英混合词汇
     - table_translator@chengyu            # 简码成语
+    - table_translator@radical_lookup   # 部件拆字反查
+    - table_translator@reverse_stroke   #笔画反查
     - lua_translator@*force_gc          # 暴力 GC 降低内存
   filters:
     - lua_filter@*cold_word_drop.filter
     - lua_filter@*long_word_filter                  #长词优先      
     - lua_filter@*autocap_filter                    # 英文自动大写
     - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
+    - lua_filter@*reduce_english_filter             # 降低部分英语单词在候选项的位置
+    - reverse_lookup_filter@radical_reverse_lookup  # 部件拆字滤镜，放在pro_comment_format前面，进一步被超级注释处理以获得拼音编码+辅助码的提示
+    - lua_filter@*pro_preedit_format                #输入码显示全拼并带上音调
     - simplifier@emoji                              # Emoji
     - simplifier@traditionalize                     # 简繁切换
     - simplifier@mars                               #火星文
+    - simplifier@chinese_english                    #中英翻译
     - simplifier@moqi_chaifen                      #墨奇拆分型辅助码查询
+#    - simplifier@zrm_chaifen                        #自然码拆分型辅助码查询
     - simplifier@pinyinhint                         #注释里显示汉字读音，多音字支持
     - lua_filter@*search@radical_pinyin             # 部件拆字辅码放在简繁转换之后
     - lua_filter@*is_in_user_dict                  # 根据是否在用户词典，在结尾加上一个星号 *
 #    - lua_filter@*cn_en_spacer                     #启用时中英混输为中英混输词条（cn_en.dict.yaml）自动增加空格，示例：`VIP中P` → `VIP 中 P`              
 #    - lua_filter@*en_spacer                        #启用时中文状态下输入英文单词后面自动追加空格
+    - lua_filter@*pro_comment_format                #超级注释模块，支持错词提示、辅助码显示，部件组字读音注释，支持个性化配置和关闭相应的功能，详情搜索pro_comment_format进行详细配置
     - uniquifier                                    # 去重
 
 # Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
@@ -136,6 +154,32 @@ long_word_filter:
 # none    不降低任何单词，相当于没有启用这个 Lua
 # （匹配的是编码，不是单词）
 
+reduce_english_filter:
+  mode: custom  # all | custom | none
+  idx: 2        # 降低到第 idx 个位置
+  # 自定义的单词列表，示例列表没有降低部分常用单词，如 and cat mail Mac but bad shit ……
+  words: [
+    aid, ann,
+    bail, bait, bam, band, bans, bat, bay, bend, bent, benz, bib, bid, bien, biz, boc, bop, bos, bud, buf, bach, bench, bush,
+    cab, cad, cain, cam, cans, cap, cas, cef, chad, chan, chap, chef, cher, chew, chic, chin, chip, chit, coup, cum, cunt, cur, couch,
+    dab, dag, dal, dam, dent, dew, dial, diet, dim, din, dip, dis, dit, doug, dub, dug, dunn,
+    fab, fax, fob, fog, foul, fur,
+    gag, gail, gain, gal, gam, gaol, ged, gel, ger, guam, gus, gut,
+    hail, ham, hank, hans, hat, hay, heil, heir, hem, hep, hud, hum, hung, hunk, hut, hush,
+    jim, jug,
+    kat,
+    lab, lad, lag, laid, lam, laos, lap, lat, lax, lay, led, leg, lex, liam, lib, lid, lied, lien, lies, linn, lip, lit, liz, lob, lug, lund, lung, lux, lash, loch, lush,
+    mag, maid, mann, mar, mat, med, mel, mend, mens, ment, mil, mins, mint, mob, moc, mop, mos, mot, mud, mug, mum, mesh,
+    nap, nat, nay, neil, nib, nip, noun, nous, nun, nut, nail, nash,
+    pac, paid, pail, pain, pair, pak, pal, pam, pans, pant, pap, par, pat, paw, pax, pens, pic, pier, pies, pins, pint, pit, pix, pod, pop, pos, pot, pour, pow, pub, pinch, pouch,
+    rand, rant, rent, rep, res, ret, rex, rib, rid, rig, rim, rub, rug, rum, runc, runs, ranch,
+    sac, sail, sal, sam, sans, sap, saw, sax, sew, sham, shaw, shin, sig, sin, sip, sis, suit, sung, suns, sup, sur, sus,
+    tad, tail, taj, tar, tax, tec, ted, tel, ter, tex, tic, tied, tier, ties, tim, tin, tit, tour, tout, tum,
+    wag, wand, womens, wap, wax, weir, won,
+    yan, yen,
+    zach
+  ]
+
 # 主翻译器，拼音
 translator:
   dictionary: longxiang          # 挂载词库
@@ -159,13 +203,9 @@ translator:
   encode_commit_history: true   # 预留历史上屏自动编码成词
   initial_quality: 3       # 初始质量拼音的权重应该比英文大
 #  secondary_quality: 0.8  # 设置次要质量
-  spelling_hints: 10
-  always_show_comments: true
-  comment_format:
-    - xform/(.*?);(..);..;..;/$1;$2; /
-    - xform/\t(.*?);(..);..;..;/$1;$2; /
-    - xform/ (.*?);(..);..;..;/$1;$2; /
-#匹配当前方案，转换为 双拼；辅助码（当前方案）的形式
+  spelling_hints: 10             # 将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
+  always_show_comments: true    # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供pro_comment_format.lua做判断用。
+  comment_format: {comment}  #将注释以词典字符串形式完全暴露，通过pro_comment_format.lua完全接管，灵活配置。
   preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
 
 # 自定义短语
@@ -186,6 +226,26 @@ chengyu:
   enable_completion: false
   initial_quality: 1.2 #本表词和系统词重码居后
 
+# 次翻译器，英文
+# melt_eng:
+#   dictionary: melt_eng     # 挂载词库 melt_eng.dict.yaml
+#   enable_sentence: false   # 禁止造句
+#   enable_user_dict: false  # 禁用用户词典，是否开启自动调频
+#   initial_quality: 1.1     # 初始权重
+#   comment_format:          # 自定义提示码
+#     - xform/.*//           # 清空提示码
+
+# 中英混合词汇
+cn_en:
+  dictionary: ""
+  user_dict: en_dicts/cn_en_double_pinyin
+  db_class: tabledb
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: 0.5
+  comment_format:
+    - xform/^.+$//
+
 # Emoji
 emoji:
   option_name: emoji
@@ -197,10 +257,27 @@ mars:
   opencc_config: martian.json 
   option_name: mars
 
+#中文转英文
+chinese_english:
+  option_name: chinese_english
+  opencc_config: chinese_english.json
+  tips: char
+  comment_format:
+    - "xform/-/ /"
+
 # 显示墨奇码拆分
 moqi_chaifen:
   option_name: moqi_chaifen
   opencc_config: moqi_chaifen.json
+  tips: char
+  show_in_comment: true
+  comment_format:
+    - "xform/	/ /"
+
+#显示自然码拆分
+zrm_chaifen:
+  option_name: zrm_chaifen
+  opencc_config: zrm_chaifen.json
   tips: char
   show_in_comment: true
   comment_format:
@@ -226,11 +303,41 @@ punctuator:
   symbols:
     __include: symbols:/symbols         # 从 symbols_v.yaml 导入配置
 
+# 部件拆字反查
+radical_lookup:
+  tag: radical_lookup
+  dictionary: radical_pinyin
+  db_class: tabledb
+  enable_user_dict: false
+  prefix: "az"  # 反查前缀（反查时前缀会消失影响打英文所以设定为两个字母，或可改成一个非字母符号），与 recognizer/patterns/radical_lookup 匹配
+  tips: "  〔部件组字〕"
+  comment_format:  #{comment}
+    - erase/^.*$//
+
+reverse_stroke:
+  tag: reverse_stroke
+  dictionary: stroke 
+  db_class: tabledb
+  enable_completion: true
+  prefix: "ab"
+  suffix: "'"
+  tips: 〔笔画 hspnz〕 
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+
+# 部件拆字滤镜
+radical_reverse_lookup:
+  tags: [ radical_lookup,reverse_stroke ]
+  overwrite_comment: true
+  dictionary: longxiang #带音调的词典
+
 # 处理符合特定规则的输入码，如网址、反查
 recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols.yaml 的 symbols
+    radical_lookup: "^az[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
+    reverse_stroke: "^ab[A-Za-z]*$"     #响应笔画反查，与reverse_stroke/prefix 匹配
     unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@number_translator，数字金额大写
     gregorian_to_lunar: "^N[0-9]{1,8}"  # 脚本将自动获取第 2 个字符 N 作为触发前缀，响应 lua_translator@lunar，公历转农历，输入 N20240115 得到「二〇二三年腊月初五」
@@ -803,7 +910,6 @@ algebra_abc:
 fuzhu_kong: 
   __append: 
     - "xform/;.*$//"
-
 fuzhu_moqi:    ##############################位于词库第一个分号后
   __append:
     - xform|^(.{2});(.*?);.*$|$1;$2|         #匹配当前方案，转换为 双拼；辅助码（当前方案）的形式
@@ -825,7 +931,6 @@ fuzhu_moqi:    ##############################位于词库第一个分号后
     - derive|^(.{2});.*,(\w)(\w).*$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
     - derive|^(\w+?);.*,(\w)(\w).*$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
     - derive|^(.{2});.*,(\w)(\w).*$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
-
 fuzhu_tiger:   ####################################位于词库第二个分号后
   __append:
     - xform/^(.{2}|\w+?);.*?;(.*?);.*$/$1;$2/   
@@ -842,7 +947,6 @@ fuzhu_tiger:   ####################################位于词库第二个分号�
     - derive|^(.{2});(\w)(\w).*$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
     - derive|^(.{2});.*,(\w)(\w).*$|$1$2$3o| # 整句模式下，输入syffo 出单字 增强单字性能
     - derive|^(.{2});.*,(\w)(\w).*$|$1$2$3/| # 整句模式下，输入syff/ 出单字 增强单字性能
-
 fuzhu_hanxin:  ########################################位于词库第三个分号后
   __append:
     - xform|^(.{2});.*?;.*?;(.*?);.*$|$1;$2|

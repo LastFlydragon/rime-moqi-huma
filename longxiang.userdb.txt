@@ -2,202 +2,378 @@
 #@/db_name	longxiang.userdb
 #@/db_type	tabledb
 #@/rime_version	1.11.2
-#@/tick	346
-按	aa[fn	2
-不会	bh[ab hf[ry	1
-不出	bh[ab ia[uu	1
-不记得	bh[ab jt[yj dr[rc	1
-不匹配	bh[ab pg[ke pk[yj	3
-不知道	bh[ab vj[uk dv[zz	2
-不行	bh[ab xn[rd	1
-不用	bh[ab yy[kf	2
-部署	bh[le um[so	1
-部首	bh[le uz[bz	2
-不会读	bl[ab hf[ry dl[yd	1
-吧	bl[kb	1
-本来	bo[ma ld[am	1
-般若	bp[vu re[ck	1
-包括	bq[bs kp[fu	1
-包里	bq[bs lg[tt	1
-报错	bv[fy cp[jo	1
-并	bw[bk	2
-保留	bx[rm lm[pt	0
-词典	cb[yk dp[qb	2
-词库	cb[yk kh[gi	3
-仓	cu[rv	1
-但会	da[rd hf[ry	1
-的	db[bu	21
-得	de[rc	1
-大词	di[ar cb[yk	0
-大词库	di[ar cb[yk kh[gi	1
-大字符	di[ar zt[bz fl[vc	2
-掉	dl[fu	2
-读	dl[yd	1
-打	dm[fd	2
-打不出	dm[fd bh[ab ia[uu	0
-打不出字	dm[fd bh[ab ia[uu zt[bz	2
-打出	dm[fd ia[uu	1
-打开	dm[fd kb[ac	1
-打字	dm[fd zt[bz	1
-打字时	dm[fd zt[bz ub[oc	1
-单字	dn[bu zt[bz	4
-当然	du[xe rp[xh	1
-定制	dw[bz vt[nd	1
-都	dx[le	4
-都去	dx[le qf[ts	1
-导致	dx[sc vt[gw	1
-分隔符	fe[bd ge[eg fl[vc	2
-符	fl[vc	1
-辅码	fm[if mm[um	2
-翻页	fn[cx yi[ab	1
-反查	fo[iy iu[md	5
-反正	fo[iy vf[av	1
-方案	fu[wv aa[bm	1
-该字	gb[yr zt[bz	1
-格式	ge[mk ut[yg	3
-跟	ge[zg	1
-更快	gf[an kf[xg	1
-给	gj[sk	2
-功能	gk[gl nf[sb	3
-干脆	gn[au cf[ov	1
-搞定了	gx[fk dw[bz lr[al	1
-搞了个	gx[fk lr[al gi[rl	1
-汉心	ha[dy xh[dd	1
-换成	hc[fr if[wv	1
-还有	hd[zb yz[uo	1
-和	he[hk	7
-会	hf[ry	2
-虎	hm[hj	1
-虎码	hm[hj mm[um	12
-候选	hr[ru xs[ze	1
-华而不实	ht[ru ek[al bh[ab ub[bd	1
-好不好用	hx[nz bh[ab hx[nz yy[kf	0
-好多	hx[nz ds[xx	1
-好了	hx[nz lr[al	1
-出	ia[uu	2
-拆字	ib[fi zt[bz	1
-超级	iq[tk jb[sj	1
-超级注释	iq[tk jb[sj vh[dv ut[cf	1
-查找	iu[md vx[fg	1
-常用	iw[xj yy[kf	3
-超级	ix[tk jb[sj	1
-集	jb[rm	2
-加上	jd[lk ud[ba	2
-精简	je[mo jp[vo	3
-精简版	je[mo jp[vo bo[py	1
-就	jo[wy	4
-简词	jp[vo cb[yk	1
-记不清	jt[yj bh[ab qe[do	2
-看看	ka[uo ka[uo	0
-看了	ka[uo lr[al	1
-快	kf[xg	1
-快符	kf[xg fl[vc	1
-库	kh[gi	0
-可能	kl[dk nf[sb	1
-可以	kl[dk yg[lr	6
-来	ld[am	3
-里	lg[tt	1
-理想	lg[wl xu[mx	1
-龙	lj[yp	3
-龙码	lj[yp mm[um	10
-龙象	lj[yp xe[du	2
-啦	ll[kl	1
-了	lr[al	18
-另外	lw[kl wo[xb	1
-魔然	me[gg rp[xh	1
-墨奇	mg[lt qb[dk	3
-吗	mm[km	0
-码	mm[um	2
-没人	mr[du rs[pn	1
-没事	mr[du ut[gy	1
-没啥用	mr[du uu[kg yy[kf	1
-能用了	nf[sb yy[kf lr[al	1
-拿来	nu[ru ld[am	0
-拿来用	nu[ru ld[am yy[kf	1
-频	pc[vy	1
-拼音	ph[fk yh[lo	1
-其实	qb[cb ub[bd	1
-青	qe[fo	1
-去掉	qf[ts dl[fu	3
-去除	qf[ts il[em	1
-全	qo[rw	1
-仍然	rf[rn rp[xh	1
-如果	rl[nk gl[tm	1
-然后	rp[xh hr[ik	1
-人家	rs[pn jd[bu	1
-人气	rs[pn qt[pv	0
-人气旺	rs[pn qt[pv wd[ow	1
-速度	sh[zu dh[gy	1
-所以	sl[hj yg[lr	1
-他	tl[ry	1
-天行者	tr[ad xn[rd vl[lo	1
-调整	tu[yk vy[uv	2
-输入	ua[id rh[pn	1
-输入法	ua[id rh[pn fm[dq	2
-什么	us[ru mr[ps	1
-室	ut[bt	1
-事	ut[gy	1
-是	ut[oz	5
-是啊	ut[oz al[kk	1
-视	ut[pj	1
-市	ut[wj	1
-式	ut[yg	1
-试	ut[yg	1
-试试	ut[yg ut[yg	0
-试试看看好不好用	ut[yg ut[yg ka[uo ka[uo hx[nz bh[ab hx[nz yy[kf	1
-收了	ux[jw lr[al	1
-手机	uz[pf jj[mj	1
-正好	vf[av hx[nz	1
-只	vg[kb	0
-只保留	vg[kb bx[rm lm[pt	1
-只有	vg[kb yz[uo	1
-注释	vh[dv ut[cf	3
-注意到	vh[dv yt[lx dv[gd	1
-之类	vj[dn lk[md	1
-支持	vj[uy ib[fc	1
-终于	vk[sd ym[au	1
-主要	vm[wt yx[xn	1
-折腾	vr[fj tf[om	2
-万象	wa[av xe[du	5
-旺	wd[ow	0
-我	wi[ga	5
-为了	wk[ld lr[al	1
-为什么	wk[ld us[ru mr[ps	1
-为啥	wk[ld uu[kg	1
-无坚不摧	wl[ay jr[lt bh[ab ct[fv	1
-蛙	wl[it	2
-问题	wo[mk tb[oy	3
-完美	wp[by mj[yd	1
-文件	ws[wx ja[rn	1
-现成	xa[wj if[wv	1
-写	xc[by	1
-喜欢	xg[tk hd[yq	1
-需要时间	xh[ye yv[xn ub[oc jr[mo	1
-学了	xi[xz lr[al	1
-学习学习	xi[xz xb[vd xi[xz xb[vd	1
-形	xn[kp	1
-行	xn[rd	1
-想法	xu[mx fm[dq	1
-性能	xw[xu nf[sb	1
-修复	xz[rp fh[pw	8
-英语	ye[cy ys[yk	2
-应该	ye[ga gb[yr	1
-已经	yg[kv je[sj	1
-音	yh[lo	2
-音形	yh[lo xn[kp	2
-一些	yj[aa xk[ve	1
-也是	yl[vv ut[oz	1
-原来是	yo[ix ld[am ut[oz	2
-用	yy[kf	5
-用的	yy[kf dr[bu	1
-用了	yy[kf lr[al	1
-有	yz[uo	2
-增加	zc[to jd[lk	1
-最适合	zf[oy ut[zu he[rk	1
-怎么	zo[vx mr[ps	1
-字	zt[bz	4
-字词	zt[bz cb[yk	1
-字词库	zt[bz cb[yk kh[gi	1
-字频	zt[bz pc[vy	1
-自己	zt[po jg[kv	1
-自然	zt[po rp[xh	0
+#@/tick	4829
+吧	ba;kb;	4
+遍	biàn;zc;	1
+𰻝𰻝面	biáng;zx; biáng;zx; miàn;ao;	2
+标	biāo;mu;	0
+标错了	biāo;mu; cuò;jo; le;al;	1
+标的	biāo;mu; de;bu;	1
+脖子	bó;oz; zi;la;	0
+不	bù;ab;	1
+不管了	bù;ab; guǎn;vl; le;al;	1
+不好	bù;ab; hǎo;nz;	1
+不生效	bù;ab; shēng;pf; xiào;ww;	1
+不会	bú;ab; huì;ry;	1
+不怕	bú;ab; pà;xb;	1
+不怕神一样的对手就怕猪一样的队友	bú;ab; pà;xb; shén;pu; yī;aa; yàng;my; de;bu; duì;yc; shǒu;pf; jiù;wy; pà;xb; zhū;qo; yī;aa; yàng;my; de;bu; duì;er; yǒu;uy;	1
+把	bǎ;fb;	1
+把词	bǎ;fb; cí;yk;	1
+百度	bǎi;ab; dù;gy;	2
+百科	bǎi;ab; kē;hd;	1
+查了查	chá;md; le;al; chá;md;	1
+常用	cháng;xj; yòng;kf,ol;	0
+常用字库	cháng;xj; yòng;kf,ol; zì;bz; kù;gi;	1
+重构	chóng;ql; gòu;mg;	1
+重新	chóng;ql; xīn;lj;	1
+出来	chū;uu; lái;am;	2
+出去	chū;uu; qù;ts;	0
+出现	chū;uu; xiàn;wj;	1
+错了	cuò;jo; le;al;	0
+财务自由	cái;bc; wù;wl; zì;po; yóu;ol,lt;	1
+才会	cái;up; huì;ry;	1
+才好	cái;up; hǎo;nz;	1
+词	cí;yk;	1
+词库	cí;yk; kù;gi;	1
+词库里	cí;yk; kù;gi; lǐ;tt;	3
+猜的	cāi;qo; de;bu;	1
+参考	cān;sp; kǎo;lk;	1
+的	de;bu;	2
+电脑	diàn;ov,yv; nǎo;ox;	0
+调用	diào;yk; yòng;kf,ol;	1
+队友	duì;er; yǒu;uy;	0
+对手	duì;yc; shǒu;pf;	0
+多	duō;xx;	1
+多音字	duō;xx; yīn;lo; zì;bz;	1
+大	dà;ar;	1
+大部分	dà;ar; bù;le; fèn;bd;	1
+大海	dà;ar; hǎi;dm;	1
+但是	dàn;rd; shì;oz;	1
+但是还没到账	dàn;rd; shì;oz; hái;zb; méi;du; dào;gd; zhàng;bi;	1
+档	dàng;me;	0
+到底	dào;gd; dǐ;gu;	1
+到账	dào;gd; zhàng;bi;	0
+得	dé;rc;	0
+地球	dì;ty; qiú;wq;	1
+第	dì;vd;	8
+第一次	dì;vd; yī;aa; cì;dq;	1
+定义	dìng;bz; yì;dx;	0
+度	dù;gy;	1
+读	dú;yd;	5
+读音	dú;yd; yīn;lo;	2
+单独	dān;bu; dú;qi;	1
+单机	dān;bu; jī;mj;	1
+单字	dān;bu; zì;bz;	0
+低于	dī;ru; yú;au;	1
+都	dōu;le;	4
+都是	dōu;le; shì;oz;	1
+都有	dōu;le; yǒu;uo;	1
+打	dǎ;fd;	2
+打词	dǎ;fd; cí;yk;	1
+打单字	dǎ;fd; dān;bu; zì;bz;	1
+嗯	en;kx;	2
+放	fàng;fw;	0
+放起音乐	fàng;fw; qǐ;tj; yīn;lo; yuè;px;	1
+废话	fèi;gy; huà;yu;	0
+符号	fú;vc; hào;kk;	1
+发	fā;fy;	0
+发废话	fā;fy; fèi;gy; huà;yu;	1
+发黑	fā;fy; hēi;lh;	0
+分开	fēn;bd; kāi;ac;	1
+分了	fēn;bd; le;al;	1
+法	fǎ;dq;	0
+逛	guàng;zw;	1
+管用	guǎn;vl; yòng;kf,ol;	1
+个	gè;rl;	1
+该	gāi;yr;	0
+该出去玩了	gāi;yr; chū;uu; qù;ts; wán;wy; le;al;	1
+干脆	gān;au; cuì;ov;	1
+刚想	gāng;kd; xiǎng;mx;	1
+高	gāo;wk;	1
+高生呼唤	gāo;wk; shēng;pf; hū;kh; huàn;kr;	1
+歌曲	gē;kq; qǔ;kc;	1
+跟简词一样	gēn;zg; jiǎn;vo; cí;yk; yī;aa; yàng;my;	1
+改了	gǎi;jw; le;al;	1
+搞不定	gǎo;fk; bú;ab; dìng;bz;	1
+搞大上	gǎo;fk; dà;ar; shàng;ba;	1
+骨灰	gǔ;go; huī;uh;	1
+化肥	huà;rb; féi;ob;	0
+话费	huà;yu; fèi;fb;	1
+汇集	huì;dk; jí;rm;	1
+会	huì;ry;	0
+会花费	huì;ry; huā;cb; fèi;fb;	1
+或者	huò;ga; zhě;lo;	1
+花费	huā;cb; fèi;fb;	0
+花椒	huā;cb; jiāo;my;	1
+灰	huī;uh;	0
+灰化肥发黑	huī;uh; huà;rb; féi;ob; fā;fy; hēi;lh;	1
+汉典	hàn;dy; diǎn;qb;	2
+还	hái;zb;	0
+还差	hái;zb; chà;yg;	1
+还会	hái;zb; huì;ry;	1
+还能	hái;zb; néng;sb;	0
+还能说什么呢	hái;zb; néng;sb; shuō;yx shén;ru; me;ps; ne;kb	1
+还是	hái;zb; shì;oz;	1
+和	hé;hk;	9
+和百度	hé;hk; bǎi;ab; dù;gy;	1
+后悔	hòu;ik; huǐ;xm;	1
+蝴蝶刀	hú;io; dié;im; dāo;vp;	1
+哈	hā;kk;	1
+黑化肥	hēi;lh; huà;rb; féi;ob;	0
+黑化肥发灰	hēi;lh; huà;rb; féi;ob; fā;fy; huī;uh;	1
+很	hěn;rg;	1
+很多	hěn;rg; duō;xx;	1
+很精致	hěn;rg; jīng;mo; zhì;gw;	1
+很少	hěn;rg; shǎo;xp;	1
+呼唤	hū;kh; huàn;kr;	0
+呼啸	hū;kh; xiào;kb;	1
+呼哮	hū;kh; xiāo;kz;	1
+好开心	hǎo;nz; kāi;ac; xīn;dd;	1
+好像	hǎo;nz; xiàng;ru;	2
+好主意	hǎo;nz; zhǔ;wt; yì;lx;	1
+吼叫	hǒu;kv; jiào;kj;	1
+健身	jiàn;ry; shēn;zc;	1
+叫嚣	jiào;kj; xiāo;kk;	2
+教材	jiào;lw; cái;mc;	1
+就	jiù;wy;	0
+就得	jiù;wy; dé;rc;	1
+就怕	jiù;wy; pà;xb;	0
+加个	jiā;lk; gè;rl;	1
+肩膀	jiān;ho; bǎng;of;	0
+间隙	jiān;mo; xì;eo;	1
+尖细	jiān;xd; xì;st;	1
+觉得	jué;xj; de;rc;	0
+记得	jì;yj; de;rc;	1
+竟然	jìng;le; rán;xh;	0
+竟然都是	jìng;le; rán;xh; dōu;le; shì;oz;	1
+极光	jí;mj,mn; guāng;xe;	1
+基本	jī;ct; běn;ma;	0
+基本上能算完美	jī;ct; běn;ma; shàng;ba; néng;sb; suàn;vc; wán;by; měi;yd;	1
+精致	jīng;mo; zhì;gw;	1
+精准	jīng;mo; zhǔn;dv;	1
+看	kàn;uo	0
+看到	kàn;uo; dào;gd;	0
+看见	kàn;uo; jiàn;ke;	1
+看看	kàn;uo; kàn;uo;	2
+靠	kào;nf;	1
+开	kāi;ac;	1
+科技	kē;hd; jì;fv;	1
+可以	kě;dk; yǐ;lr;	1
+卡	kǎ;ub;	1
+卡牌	kǎ;ub; pái;pu;	1
+啦	la;kl;	1
+了	le;al;	2
+两个	liǎng;ar; gè;rl;	1
+两个字库	liǎng;ar; gè;rl; zì;bz; kù;gi;	1
+厉害啦	lì;iw; hài;bk; la;kl;	1
+例子	lì;rd; zi;la;	1
+离线	lí;wn; xiàn;sj;	1
+论坛	lùn;yl; tán;ty;	1
+里	lǐ;tt;	2
+滤	lǜ;dx;	0
+滤一变	lǜ;dx; yī;aa; biàn;wy;	1
+吗	ma;km;	2
+么	me;ps;	1
+面	miàn;ao;	1
+没	méi;du;	2
+没错	méi;du; cuò;jo;	1
+没法	méi;du; fǎ;dq;	1
+没了	méi;du; le;al;	1
+没有	méi;du; yǒu;uo;	1
+墨绿色	mò;lt; lǜ;su; sè;db;	1
+魔龙	mó;gg; lóng;yp;	1
+码	mǎ;um;	1
+买了	mǎi;ad; le;al;	1
+买了新皮套	mǎi;ad; le;al; xīn;lj; pí;py; tào;dg;	1
+呢	ne;kb	0
+呢	ne;kb;	1
+那种	nà;ve; zhǒng;hv;	1
+难道	nán;yv; dào;zz;	1
+能	néng;sb;	0
+能让人心	néng;sb; ràng;yu; rén;pn; xīn;dd;	1
+能算	néng;sb; suàn;vc;	0
+宁静	níng;bd; jìng;fy;	0
+宁静下来的	níng;bd; jìng;fy; xià;ab; lái;am; de;bu;	1
+弄好了	nòng;wc; hǎo;nz; le;al;	2
+你	nǐ;rx;	0
+你是说	nǐ;rx; shì;oz; shuō;yx;	1
+你这跑两步	nǐ;rx; zhè;zw; pǎo;zb; liǎng;ar; bù;vu;	1
+咆哮	páo;kb; xiào;kz;	1
+咆哮	páo;kb; xiāo;kz;	1
+皮套	pí;py; tào;dg;	0
+拍一张	pāi;fb; yì;aa; zhāng;gi;	1
+跑两步	pǎo;zb; liǎng;ar; bù;vu;	0
+颇	pǒ;py;	3
+全	quán;rw;	1
+确实	què;uy; shí;bd;	1
+其实	qí;cb; shí;bd;	1
+奇怪	qí;dk; guài;xt;	1
+情况	qíng;xo; kuàng;dx;	1
+去	qù;ts;	1
+去湖边	qù;ts; hú;do; biān;zl;	0
+去海边	qù;ts; hǎi;dm; biān;zl;	1
+清净	qīng;do; jìng;dy;	0
+曲	qū;kc;	4
+起	qǐ;tj;	0
+让	ràng;yu;	0
+然后	rán;xh; hòu;ik;	1
+人	rén;pn;	1
+人心	rén;pn; xīn;dd;	0
+如何	rú;nk; hé;rk;	0
+睡	shuì;ot;	0
+睡得肩膀脖子有点疼	shuì;ot; dé;rc; jiān;ho; bǎng;of; bó;oz; zi;la; yǒu;uo; diǎn;vh; téng;bd;	1
+说	shuō;yx	0
+上	shàng;ba;	0
+上次	shàng;ba; cì;dq;	1
+啥	shá;kg;	1
+啥的	shá;kg; de;bu;	1
+设	shè;yu;	1
+神	shén;pu;	0
+什么	shén;ru; me;ps;	0
+世界	shì;cv; jiè;tj;	0
+世界就清净了	shì;cv; jiè;tj; jiù;wy; qīng;do; jìng;dy; le;al;	1
+是	shì;oz;	3
+试试看	shì;yg; shì;yg; kàn;uo;	0
+试试看看	shì;yg; shì;yg; kàn;uo; kàn;uo	1
+时候	shí;oc; hòu;ru;	1
+生	shēng;pf;	0
+生僻字	shēng;pf; pì;rx; zì;bz;	2
+声	shēng;tu;	13
+输入	shū;id; rù;pn;	0
+输入法	shū;id; rù;pn; fǎ;dq;	1
+手动	shǒu;pf; dòng;yl;	0
+手动档	shǒu;pf; dòng;yl; dàng;me;	1
+手动支付了	shǒu;pf; dòng;yl; zhī;uy; fù;rc; le;al;	1
+手机	shǒu;pf; jī;mj;	1
+手机皮套	shǒu;pf; jī;mj; pí;py; tào;dg;	1
+所以	suǒ;hj; yǐ;lr;	1
+所以你觉得如何呢	suǒ;hj; yǐ;lr; nǐ;rx; jué;xj; de;rc; rú;nk; hé;rk; ne;kb;	1
+搜	sōu;fy;	2
+嗖的	sōu;ky; de;bu;	1
+洒向	sǎ;dx; xiàng;pk;	1
+跳上车	tiào;zv; shàng;ba; chē;au;	1
+调	tiáo;yk;	1
+调低	tiáo;yk; dī;ru;	1
+调试	tiáo;yk; shì;yg;	0
+调试调试	tiáo;yk; shì;yg; tiáo;yk; shì;yg;	1
+天	tiān;ad;	0
+天地之间	tiān;ad; dì;ty; zhī;dn; jiān;mo;	1
+太难	tài;dd; nán;yv;	1
+停下来	tíng;rd; xià;ab; lái;am;	1
+同文	tóng;kk; wén;wx;	1
+图八	tú;kd; bā;pn;	1
+通识课	tōng;zy; shí;yv; kè;yg;	1
+哇	wa;kt;	2
+完美	wán;by; měi;yd;	0
+玩	wán;wy;	1
+问题	wèn;mk; tí;oy;	1
+文件里	wén;wx; jiàn;rn; lǐ;tt;	1
+晚上	wǎn;oe; shàng;ba;	0
+晚上去湖边	wǎn;oe; shàng;ba; qù;ts; hú;do; biān;zl;	1
+我也是	wǒ;ga; yě;vv; shì;oz;	1
+下来	xià;ab; lái;am;	0
+现有	xiàn;wj; yǒu;uo;	0
+现有的	xiàn;wj; yǒu;uo; de;bu;	1
+向着	xiàng;pk; zhe;yo;	0
+像我	xiàng;ru; wǒ;ga;	1
+笑死	xiào;vy; sǐ;db;	1
+哮	xiāo;kz;	6
+哮喘	xiāo;kz; chuǎn;ke;	1
+写日记	xiě;by; rì;ka; jì;yj;	2
+小	xiǎo;lb;	1
+小了一半	xiǎo;lb; le;al; yī;aa; bàn;bf;	1
+小学	xiǎo;lb; xué;xz;	1
+玄	xuán;wy;	0
+玄天之龙	xuán;wy; tiān;ad; zhī;dn; lóng;yp;	3
+学的是	xué;xz; de;bu; shì;oz;	1
+习惯养成	xí;vd; guàn;xb; yǎng;yl; chéng;wv;	1
+行了	xíng;rd; le;al;	1
+行者	xíng;rd; zhě;lo;	1
+新	xīn;lj;	0
+新的	xīn;lj; de;bu;	1
+乐曲	yuè;px; qǔ;kc;	1
+样	yàng;my;	0
+要	yào;xn;	2
+要用	yào;xn; yòng;kf,ol;	1
+一点	yì;aa; diǎn;vh;	1
+一份	yí;aa; fèn;rf;	1
+一个	yí;aa; gè;rl;	1
+一路	yí;aa; lù;zk;	0
+一路向着	yí;aa; lù;zk; xiàng;pk; zhe;yo;	1
+移民	yí;hx; mín;vv;	1
+用	yòng;kf,ol;	5
+余额不足	yú;rm; é;by; bù;ab; zú;kz;	1
+也	yě;vv;	1
+也许	yě;vv; xǔ;yw;	1
+也许能看到	yě;vv; xǔ;yw; néng;sb; kàn;uo; dào;gd;	1
+一	yī;aa;	1
+一变	yī;aa; biàn;wy;	0
+一个乱	yī;aa; gè;rl; luàn;uv;	1
+一个月	yī;aa; gè;rl; yuè;ke;	1
+一人	yī;aa; rén;pn;	1
+一下	yī;aa; xià;ab;	1
+音	yīn;lo;	1
+音调	yīn;lo; diào;yk;	1
+音乐	yīn;lo; yuè;px;	0
+音韵	yīn;lo; yùn;ly;	1
+应该	yīng;ga; gāi;yr;	2
+以前的事	yǐ;lr; qián;bd; de;bu; shì;gy;	1
+有	yǒu;uo;	2
+有点疼	yǒu;uo; diǎn;vh; téng;bd;	0
+语调	yǔ;yk; diào;yk;	1
+语文	yǔ;yk; wén;wx;	1
+语文课	yǔ;yk; wén;wx; kè;yg;	1
+转钱	zhuǎn;iv; qián;jj;	1
+账单	zhàng;bi; dān;bu;	1
+这	zhè;zw;	2
+这个	zhè;zw; gè;rl;	1
+这个音	zhè;zw; gè;rl; yīn;lo;	1
+这就	zhè;zw; jiù;wy;	1
+这没用	zhè;zw; méi;du; yòng;kf,ol;	1
+这些	zhè;zw; xiē;ve;	1
+这样	zhè;zw; yàng;my;	2
+这种	zhè;zw; zhǒng;hv;	1
+正想	zhèng;av; xiǎng;mx;	1
+直到	zhí;uq; dào;gd;	1
+注释	zhù;dv; shì;cf;	1
+真叫	zhēn;ub; jiào;kj;	1
+之间	zhī;dn; jiān;mo;	1
+之龙	zhī;dn; lóng;yp;	0
+之前能	zhī;dn; qián;bd; néng;sb;	1
+知识	zhī;uk; shí;yv;	0
+支付了	zhī;uy; fù;rc; le;al;	0
+猪	zhū;qo;	0
+涨	zhǎng;di;	0
+涨知识了	zhǎng;di; zhī;uk; shí;yv; le;al;	1
+找出来	zhǎo;fg; chū;uu; lái;am;	1
+只适用于	zhǐ;kb; shì;zu; yòng;kf,ol; yú;au;	0
+只适用于电脑	zhǐ;kb; shì;zu; yòng;kf,ol; yú;au; diàn;ov,yv; nǎo;ox;	1
+只有	zhǐ;kb; yǒu;uo;	1
+种子	zhǒng;hv; zi;la;	1
+主题	zhǔ;wt; tí;oy;	1
+主题里	zhǔ;wt; tí;oy; lǐ;tt;	1
+主题文件	zhǔ;wt; tí;oy; wén;wx; jiàn;rn;	1
+准确	zhǔn;dv; què;uy;	1
+作	zuò;rv;	1
+做	zuò;rw;	3
+在	zài;ut;	1
+在你	zài;ut; nǐ;rx;	1
+字	zì;bz;	2
+字库	zì;bz; kù;gi;	1
+字库里没有	zì;bz; kù;gi; lǐ;tt; méi;du; yǒu;uo;	1
+字频	zì;bz; pín;vy;	2
+自	zì;po;	0
+自定义的输入法	zì;po; dìng;bz; yì;dx; de;bu; shū;id; rù;pn; fǎ;dq;	1
+自动	zì;po; dòng;yl;	1
+自己	zì;po; jǐ;kv;	1
+怎么	zěn;vx; me;ps;	1
+怎么才能	zěn;vx; me;ps; cái;up; néng;sb;	1
+紫苏	zǐ;vx; sū;cb;	1
+走一走	zǒu;tz; yi;aa; zǒu;tz;	1
+走走	zǒu;tz; zǒu;tz;	1
+按	àn;fn;	1
+按键	àn;fn; jiàn;jy;	1
+二手商店	èr;aa; shǒu;pf; shāng;wk; diàn;gv;	1
+而是	ér;al; shì;oz;	1
+哦	ó;kw;	3
+安装	ān;bn; zhuāng;ly;	1
